@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core'
 
 const applicationRoutes: Routes = [
     { path: '', loadChildren: () => import('../pages/index-page/index.module').then(m => m.IndexModule) },
-    // { path: 'about-us', loadChildren: () => import('../pages/about-us/about-us.module').then(m => m.AboutUsModule) },
+    { path: 'sign-in', loadChildren: () => import('../pages/login-page/login.module').then(m => m.LoginModule) },
     // { path: 'contact-us', loadChildren: () => import('../pages/contact-us/contact-us.module').then(m => m.ContactUsModule) },
     // { path: 'portfolio', loadChildren: () => import('../pages/portfolio/portfolio.module').then(m => m.PortfolioModule) },
   ]

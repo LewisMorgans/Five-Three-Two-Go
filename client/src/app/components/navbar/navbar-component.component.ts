@@ -1,15 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar-component',
   templateUrl: './navbar-component.component.html',
-  styleUrls: ['./navbar-component.component.css']
+  styleUrls: ['./navbar-component.component.scss']
 })
-export class NavbarComponentComponent implements OnInit {
+export class NavbarComponentComponent {
 
-  constructor() { }
+  constructor(private readonly _router: Router) { }
 
-  ngOnInit(): void {
+  public handleClick(params: string): void {
+    switch(params) {
+      case 'signin':
+        this._router.navigate(['sign-in'])
+        break;
+      case 'register':
+        this._router.navigate(['register'])
+        break;
+      default:
+        return null
+    }
   }
-
 }

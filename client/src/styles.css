@@ -2,3 +2,7 @@
     font-family: titleFont;
     src: url('./assets/fonts/BebasNeue-Bold.otf');
 }
+
+body {
+    background-color: #364F6B;
+}
