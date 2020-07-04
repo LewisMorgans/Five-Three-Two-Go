@@ -3,16 +3,16 @@
     font-size: 400%;
     text-align: center;
     color: #364f6b;
-    height: 90px !important
+    height: 90px !important;
 }
 .row {
-    margin-top: 300px !important
+    margin-top: 300px !important;
 }
 
 .errorClass {
     border-color: red !important;
-  }
-  
+}
+
 .card {
     background-color: #f0f0f0;
     min-height: 43vh;
@@ -28,14 +28,12 @@
         border-radius: 50%;
         background-color: #f0f0f0;
         padding: 1%;
-        
     }
 
     .btnContainer {
         margin: 0 auto;
         text-align: center;
         font-family: titleFont;
-        
 
         .go {
             width: 40%;
@@ -44,7 +42,7 @@
             border-radius: 30px;
             border: 2px solid #fc5185;
             color: white;
-            padding: 0 5%
+            padding: 0 5%;
         }
     }
 
@@ -61,5 +59,11 @@
         font-size: 150%;
         color: #364f6b;
         margin-left: 10%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .row {
+        margin-top: 100px !important;
     }
 }

@@ -33,6 +33,7 @@ export class LoginPageComponent implements OnInit {
   }
 
   public onSubmit(): void {
+    // call service here
     this.submitted = true;
     if (this.validationCheck()) {
       this._router.navigate(['charts'])
