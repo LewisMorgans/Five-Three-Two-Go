@@ -1,0 +1,65 @@
+.title {
+    font-family: titleFont;
+    font-size: 400%;
+    text-align: center;
+    color: #364f6b;
+    height: 90px !important
+}
+.row {
+    margin-top: 300px !important
+}
+
+.errorClass {
+    border-color: red !important;
+  }
+  
+.card {
+    background-color: #f0f0f0;
+    min-height: 43vh;
+    border-radius: 30px;
+    border: 3px solid #fc5185;
+    padding-bottom: 50px;
+
+    .image {
+        width: 40%;
+        display: block;
+        margin: 0 auto;
+        z-index: 2;
+        border-radius: 50%;
+        background-color: #f0f0f0;
+        padding: 1%;
+        
+    }
+
+    .btnContainer {
+        margin: 0 auto;
+        text-align: center;
+        font-family: titleFont;
+        
+
+        .go {
+            width: 40%;
+            font-size: 200%;
+            background-color: #364f6b;
+            border-radius: 30px;
+            border: 2px solid #fc5185;
+            color: white;
+            padding: 0 5%
+        }
+    }
+
+    input,
+    input:focus {
+        border-radius: 30px;
+        color: #fc5185;
+        width: 80% !important;
+        margin: 5% auto;
+    }
+
+    label {
+        font-family: titleFont;
+        font-size: 150%;
+        color: #364f6b;
+        margin-left: 10%;
+    }
+}
