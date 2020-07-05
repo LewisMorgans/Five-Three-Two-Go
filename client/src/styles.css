@@ -6,3 +6,7 @@
 body {
     background-color: #364F6B;
 }
+
+.errorClass {
+    border-color: red !important;
+}
