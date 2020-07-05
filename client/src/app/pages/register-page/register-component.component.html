@@ -1,1 +1,51 @@
-<p>register-component works!</p>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-4 ml-auto promoContainer">
+            <div class="card promo">
+                <div class="card-body">
+                    <h1 class="title">register</h1>
+                    <div clas="infoContainer">
+                        <p class="info">Never lose track of your
+                            finances again...</p>
+                    </div>
+
+                    <img class="image" src="../../../assets/images/coins.png">
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+        <div class="col-md-4 mr-auto">
+            <div class="card form">
+                <div class="card-body">
+                    <form [formGroup]="registerForm" class="form-register">
+                        <label for="inputEmail">Email</label>
+                        <input formControlName="email" type="email" id="inputEmail" class="form-control" required
+                            autofocus [ngClass]="{'errorClass': f.email.errors && submitted}">
+                        <label for="inputPassword">Username</label>
+                        <input formControlName="username" type="text" id="inputPassword" class="form-control"
+                            required [ngClass]="{'errorClass': f.password.errors && submitted}">
+                        <label for="inputPassword">Password</label>
+                        <input formControlName="password" type="password" id="inputEmail" class="form-control" required
+                            autofocus [ngClass]="{'errorClass': f.email.errors && submitted}">
+                        <label for="inputPassword">Confirm Password</label>
+                        <input formControlName="password2" type="password" id="inputPassword" class="form-control"
+                            required [ngClass]="{'errorClass': f.password.errors && submitted}">
+                        <div class="btnContainer">
+                            <button class="btn btn-large go" type="submit" (click)="onSubmit()">GO</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
