@@ -1,0 +1,25 @@
+h1 {
+    
+        font-family: titleFont;
+        font-size: 50px;
+        color: #FC5185;
+        padding-top: 35%
+    
+}
+h2 {
+    font-family: titleFont;
+    font-size: 50px;
+    color: #FC5185;
+}
+
+.card {
+    background-color: #F0F0F0;
+    border-radius: 25px;
+    padding: 0 5%
+}
+
+.chart {
+    width: 100%; 
+    min-height: 450px;
+    border-radius: 15px;
+  }

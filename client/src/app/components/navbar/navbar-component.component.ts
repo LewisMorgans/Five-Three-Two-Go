@@ -18,6 +18,8 @@ export class NavbarComponentComponent {
       case 'register':
         this._router.navigate(['register'])
         break;
+      case 'finances':
+        this._router.navigate(['finances'])
       default:
         return null
     }
