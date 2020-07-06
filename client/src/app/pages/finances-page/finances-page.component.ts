@@ -1,48 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
+import { Label } from 'ng2-charts';
 
 @Component({
   selector: 'app-finances-page',
   templateUrl: './finances-page.component.html',
-  styleUrls: ['./finances-page.component.css']
+  styleUrls: ['./finances-page.component.scss']
 })
 export class FinancesPageComponent {
-  public chartType: string = 'bar';
 
-  public chartDatasets: Array<any> = [
-    { data: [65, 59, 80, 81, 56, 55, 40], label: 'My First dataset' }
-  ];
 
-  public chartLabels: Array<any> = ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'];
-
-  public chartColors: Array<any> = [
-    {
-      backgroundColor: [
-        'rgba(255, 99, 132, 0.2)',
-        'rgba(54, 162, 235, 0.2)',
-        'rgba(255, 206, 86, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(153, 102, 255, 0.2)',
-        'rgba(255, 159, 64, 0.2)'
-      ],
-      borderColor: [
-        'rgba(255,99,132,1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)',
-        'rgba(255, 159, 64, 1)'
-      ],
-      borderWidth: 2,
-    }
-  ];
-
-  public chartOptions: any = {
+  public barChartOptions: ChartOptions = {
     responsive: true
   };
+  public barChartLabels: Label[] = ['50%', '30%', '20%'];
+  public barChartType: ChartType = 'bar';
+  public barChartLegend = true;
+  public barChartPlugins = [
+  ];
+
+  public barChartData: ChartDataSets[] = [
+    { data: [1004.98, 758.63, 594.60], label: 'Budget', backgroundColor: ['#364F6B', '#364F6B', '#364F6B'] },
+    { data: [1020, 740, 594.60], label: 'Actual Spend', backgroundColor: ['#d72323', '#d72323', '#d72323'] }
+  ];
 
 
 
-  public chartClicked(e: any): void { }
-  public chartHovered(e: any): void { }
+
 
 }

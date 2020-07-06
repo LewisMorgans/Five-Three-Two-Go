@@ -23,3 +23,19 @@ h2 {
     min-height: 450px;
     border-radius: 15px;
   }
+
+  .btnContainer {
+    margin: 0 auto;
+    text-align: center;
+    font-family: titleFont;
+
+    .go {
+        width: 100%;
+        font-size: 200%;
+        background-color: #fc5185;
+        border-radius: 30px;
+        border: 2px solid #fc5185;
+        color: white;
+        padding: 0 5%;
+    }
+}

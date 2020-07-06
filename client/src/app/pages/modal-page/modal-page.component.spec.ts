@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ChartsPageComponent } from './charts-page.component';
+import { ChartsPageComponent } from './modal-page.component';
 
 describe('ChartsPageComponent', () => {
   let component: ChartsPageComponent;

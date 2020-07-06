@@ -8,5 +8,10 @@
 .navbar {
     background-color: #FC5185;
     z-index: 1;
-    padding: 0px
+    padding: 0px;
+
+    li, li:hover {
+        cursor: pointer;
+        color: white;
+    }
 }

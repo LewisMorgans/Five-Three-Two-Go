@@ -50,19 +50,33 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-10 mx-auto mt-5">
-            <div style="display: block">
-                <canvas mdbChart
-                    [chartType]="chartType"
-                    [datasets]="chartDatasets"
-                    [labels]="chartLabels"
-                    [colors]="chartColors"
-                    [options]="chartOptions"
-                    [legend]="true"
-                    (chartHover)="chartHovered($event)"
-                    (chartClick)="chartClicked($event)">
+        <div class="col-md-8 mx-auto mt-5">
+            <div class="card">
+                <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+                    [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType">
                 </canvas>
-              </div>
+            </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-4 mx-auto mt-5">
+            <!-- Button trigger modal -->
+            <div class="btnContainer">
+                <button type="button" class="btn btn-primary go" data-toggle="modal" data-target="#exampleModalCenter">
+                    Edit Finances
+                </button>
+            </div>
+           
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <app-modal-page></app-modal-page>
 </div>
