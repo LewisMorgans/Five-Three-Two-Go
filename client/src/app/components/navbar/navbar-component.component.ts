@@ -11,6 +11,7 @@ export class NavbarComponentComponent {
   constructor(private readonly _router: Router) { }
 
   public handleClick(params: string): void {
+    
     console.log(params)
     switch (params) {
       case 'signin':
@@ -21,6 +22,7 @@ export class NavbarComponentComponent {
         break;
       case 'finances':
         this._router.navigate(['finances'])
+        break;
       case 'account':
         this._router.navigate(['account'])
       default:
