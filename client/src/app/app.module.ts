@@ -9,7 +9,7 @@ import { AppRoutingModule } from './router/app-router';
 @NgModule({
   declarations: [
     AppComponent,
-    AccountPageComponent,
+    // AccountPageComponent,
     NavbarComponentComponent
   ],
   imports: [

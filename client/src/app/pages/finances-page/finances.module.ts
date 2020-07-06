@@ -6,7 +6,7 @@ import { GoogleChartsModule } from 'angular-google-charts';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { NgChartjsModule } from 'ng-chartjs';
 import { ChartsModule } from 'ng2-charts';
-import { ModalPageComponent } from '../modal-page/modal-page.component';
+import { ModalPageComponent } from 'src/app/components/finances-modal/modal-page.component';
 
 
 @NgModule({
