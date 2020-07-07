@@ -1,38 +1,50 @@
 import { Injectable } from "@angular/core";
-import { Router } from '@angular/router';
 import { Observable, EMPTY } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Injectable({
     providedIn: 'root'
 })
 export class AuthenticationService {
     constructor(
+        private readonly _http: HttpClient,
         private readonly _router: Router
-    ) {}
+    ) { }
 
 
     login(email: string, password: string): Observable<{}> {
-        return EMPTY;
+        let payload = {
+            emailAddress: email,
+            password: password
+        }
+
+        return this._http.post('api/authentication/login', payload)
     }
 
     resetPassword(password: string): Observable<{}> {
-        return EMPTY;
+        return this._http.post('api/authentication/resetPassword', password)
     }
 
     logout(): void {
-
+        localStorage.clear();
+        this._router.navigate([''])
     };
 
-    updateEmail() {
-
+    updateEmail(email: string) {
+        return this._http.post('api/authentication/updateEmail', email)
     }
 
-    updatePassword() {
-
+    updatePassword(password: string) {
+        return this._http.post('api/authentication/updatePassword', password)
     }
 
-    updateUsername() {
+    updateUsername(username: string) {
+        return this._http.post('api/authentication/updateUsername', username)
+    }
 
+    getUser(): Observable<object> {
+        return this._http.get('api/authentication/getUser')
     }
 
 
