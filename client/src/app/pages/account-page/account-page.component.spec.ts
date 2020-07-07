@@ -1,7 +1,7 @@
 import { AccountPageComponent } from './account-page.component';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
-fdescribe('AccountPageComponent', () => {
+describe('AccountPageComponent', () => {
   let component: AccountPageComponent;
 
   let _fb = new FormBuilder();
@@ -27,22 +27,22 @@ fdescribe('AccountPageComponent', () => {
     component = new AccountPageComponent(_fb, _authenticationService)
   });
 
-  fit('should create', () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  fit('Should initialise the form state', () => {
+  it('Should initialise the form state', () => {
     component.ngOnInit();
     expect(component.accountForm.valid).toBe(false)
   });
 
-  fit('Should return the account form controls object', () => {
+  it('Should return the account form controls object', () => {
     component.ngOnInit();
     expect(component.f).toBeInstanceOf(Object)
 
   });
 
-  fit('Should call the authentication service if form values valid', () => {
+  it('Should call the authentication service if form values valid', () => {
     const spy = spyOn(component, 'saveAccount').and.callThrough();
     component.accountForm = form;
     component.saveAccount();
@@ -50,14 +50,14 @@ fdescribe('AccountPageComponent', () => {
     expect(component.submitted).toEqual(true);
   });
 
-  fit('Should call resetPassword method from authentication service', () => {
+  it('Should call resetPassword method from authentication service', () => {
     const spy = spyOn(_authenticationService, 'resetPassword$').and.callThrough();
     let password = form.controls['password'].value;
     component.resetPassword();
     expect(spy).toHaveBeenCalled();
   })
 
-  fit('Should call delete account method from authentication service', () => {
+  it('Should call delete account method from authentication service', () => {
     const spy = spyOn(_authenticationService, 'deleteAccount').and.callThrough();
     component.deleteAccount();
     expect(spy).toHaveBeenCalled();

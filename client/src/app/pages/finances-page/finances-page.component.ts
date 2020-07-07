@@ -19,9 +19,10 @@ export class FinancesPageComponent implements OnInit {
   public barChartType: ChartType = 'bar';
   public barChartLegend = true;
   public barChartData: ChartDataSets[]
-  public five;
-  public three;
-  public two;
+  public financeData = {
+    actualSpend: [],
+    budget: []
+  }
 
   constructor(private readonly _dataService: DataRetrievalService) {
   }
@@ -30,16 +31,13 @@ export class FinancesPageComponent implements OnInit {
 
   }
 
-  public setValues(e: Event) {
-
+  public setValues(e) {
     this.barChartData = [
-      { data: [e[0], e[1], e[2], 0], label: 'Budget', backgroundColor: ['#364F6B', '#364F6B', '#364F6B'] },
-      { data: [1020, 740, 594.60], label: 'Actual Spend', backgroundColor: ['#d72323', '#d72323', '#d72323'] }
+      { data: [e.budget[0], e.budget[1], e.budget[2], 2], label: 'Budget', backgroundColor: ['#364F6B', '#364F6B', '#364F6B'] },
+      { data: [e.actualSpend[0], e.actualSpend[1], e.actualSpend[2]], label: 'Actual Spend', backgroundColor: ['#d72323', '#d72323', '#d72323'] }
     ];
 
-    this.five = e[0];
-    this.three = e[1];
-    this.two = e[2];
-
+    this.financeData.actualSpend = e.actualSpend.map(x => x);
+    this.financeData.budget = e.budget.map(x => x);
   }
 }
