@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ChartsPageComponent } from './modal-page.component';
+import { ModalPageComponent } from './modal-page.component';
 
-describe('ChartsPageComponent', () => {
-  let component: ChartsPageComponent;
-  let fixture: ComponentFixture<ChartsPageComponent>;
+describe('ModalPageComponent', () => {
+  let component: ModalPageComponent;
+  let fixture: ComponentFixture<ModalPageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ChartsPageComponent ]
+      declarations: [ ModalPageComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ChartsPageComponent);
+    fixture = TestBed.createComponent(ModalPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

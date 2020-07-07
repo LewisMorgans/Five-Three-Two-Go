@@ -13,7 +13,7 @@ export class AuthenticationService {
     ) { }
 
 
-    login(email: string, password: string): Observable<{}> {
+    login$(email: string, password: string): Observable<{}> {
         let payload = {
             emailAddress: email,
             password: password
@@ -22,7 +22,7 @@ export class AuthenticationService {
         return this._http.post('api/authentication/login', payload)
     }
 
-    resetPassword(password: string): Observable<{}> {
+    resetPassword$(password: string): Observable<{}> {
         return this._http.post('api/authentication/resetPassword', password)
     }
 
@@ -31,27 +31,17 @@ export class AuthenticationService {
         this._router.navigate([''])
     };
 
-    updateEmail(email: string) {
-        return this._http.post('api/authentication/updateEmail', email)
+    updateAccount$(payload: object) {
+        return this._http.post('api/authentication/updateAccount', payload)
     }
 
-    updatePassword(password: string) {
-        return this._http.post('api/authentication/updatePassword', password)
-    }
-
-    updateUsername(username: string) {
-        return this._http.post('api/authentication/updateUsername', username)
-    }
-
-    getUser(): Observable<object> {
+    getUser$(): Observable<object> {
         return this._http.get('api/authentication/getUser')
     }
 
-
-
-
-
-
+    deleteAccount(): void {
+        this._http.get('api/authentication/updateAccount'); // observables?
+    }
 
 
 }

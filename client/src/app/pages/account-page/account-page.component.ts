@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-account-page',
@@ -14,7 +14,7 @@ export class AccountPageComponent implements OnInit {
 
   constructor(
     private readonly _fb: FormBuilder,
-    private readonly _router: Router) { }
+    private readonly _authenticationService: AuthenticationService) { }
 
   ngOnInit(): void {
     this.intialiseFormState();
@@ -41,18 +41,28 @@ export class AccountPageComponent implements OnInit {
 
   }
   public saveAccount(): void {
-    // call service here
-    this.submitted = true;
-    // display saved message
-    console.log(this.f)
+    if(this.validationCheck()) {
+      this.submitted = true;
+      let payload = {
+        username: this.f.username.value,
+        email: this.f.email.value,
+        password: this.f.password.value
+      }
+      this._authenticationService.updateAccount$(payload) // ASYNC PIPE?
+    } else {
+      return null// display saved message
+    }
+
+    
   }
 
-  public updatePassword(): void {
-    // service call
+  public resetPassword(): void {
+    this._authenticationService.resetPassword$(this.f.password.value)
   }
 
   public deleteAccount(): void {
-    // service call
+    this._authenticationService.deleteAccount();
+    // flash msg
   }
 
 }
