@@ -17,6 +17,9 @@ export class ModalPageComponent implements OnInit {
   public actualFifty: number;
   public actualThirty: number;
   public actualTwenty: number;
+  public diffFifty: number;
+  public diffThirty: number;
+  public diffTwenty: number;
 
   constructor(private readonly _fb: FormBuilder,
     private readonly _data: DataRetrievalService) { }
@@ -24,6 +27,8 @@ export class ModalPageComponent implements OnInit {
   ngOnInit(): void {
     this.initialiseForm();
     // this.getUserFinance();
+    this.getBudget(); // move to getUserfinance once API made.
+    // this.setDifferential();
 
     let x = {
       actualSpend: [
@@ -54,7 +59,13 @@ export class ModalPageComponent implements OnInit {
     return this.financesform.controls;
   }
 
-  public calculations(e: Event): void {
+  private getBudget(): void { // move to getUserFinance function once API created.
+    this.fifty = (50 * this.salary) / 100;
+    this.thirty = (30 * this.salary) / 100;
+    this.twenty = (20 * this.salary) / 100;
+  }
+
+  public calculateBudget(e: Event): void {
     this.fifty = (50 * this.salary) / 100;
     this.thirty = (30 * this.salary) / 100;
     this.twenty = (20 * this.salary) / 100;
@@ -63,10 +74,11 @@ export class ModalPageComponent implements OnInit {
   private getUserFinance(): void {
     this._data.getFinances$()
       .subscribe(finances => {
-        this.salary = //finainces.salary
+        this.salary = //finances.salary
           this.actualFifty = //finances.fifty;
           this.actualThirty = //finances.thirty;
           this.actualTwenty  //finances.twenty;
+        this.setDifferential();
       });
   }
 
@@ -84,6 +96,14 @@ export class ModalPageComponent implements OnInit {
       ]
     }
     this._data.setFinances$(payload).subscribe();
+  }
+
+  private setDifferential(): void {
+
+    this.diffFifty = (this.actualFifty - this.fifty);
+    this.diffThirty = (this.actualThirty - this.thirty);
+    this.diffTwenty = (this.actualTwenty - this.twenty);
+
   }
 
 }

@@ -43,5 +43,9 @@ export class AuthenticationService {
         this._http.get('api/authentication/updateAccount'); // observables?
     }
 
+    registerAccount$(payload): Observable<{}> {
+        return this._http.post('api/authentication/register', payload)
+    }
+
 
 }
