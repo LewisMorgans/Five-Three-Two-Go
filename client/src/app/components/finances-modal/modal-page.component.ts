@@ -49,9 +49,9 @@ export class ModalPageComponent implements OnInit {
 
   private initialiseForm(): void {
     this.financesform = this._fb.group({
-      actual50: ['', Validators.required],
-      actual30: ['', Validators.required],
-      actual20: ['', Validators.required]
+      actual50: [this.actualFifty, Validators.required],
+      actual30: [this.actualThirty, Validators.required],
+      actual20: [this.actualTwenty, Validators.required]
     })
   }
 

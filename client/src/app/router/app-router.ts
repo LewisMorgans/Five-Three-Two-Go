@@ -1,5 +1,6 @@
 import { Routes, RouterModule } from '@angular/router'
 import { NgModule } from '@angular/core'
+import { AuthenticationGaurdGuard } from '../gaurds/authentication-gaurd.guard'
 
 const applicationRoutes: Routes = [
     { path: '', loadChildren: () => import('../pages/index-page/index.module').then(m => m.IndexModule) },

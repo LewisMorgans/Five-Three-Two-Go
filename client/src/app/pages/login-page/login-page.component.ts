@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-login-page',
@@ -14,10 +15,12 @@ export class LoginPageComponent implements OnInit {
 
   constructor(
     private readonly _fb: FormBuilder,
-    private readonly _router: Router) { }
+    private readonly _router: Router,
+    private readonly _authenticationService: AuthenticationService) { }
 
   ngOnInit(): void {
     this.intialiseFormState();
+    this._authenticationService.decodeToken()
   }
 
   private intialiseFormState(): void {
@@ -33,10 +36,22 @@ export class LoginPageComponent implements OnInit {
   }
 
   public onSubmit(): void {
-    // call service here
     this.submitted = true;
     if (this.validationCheck()) {
-      this._router.navigate(['charts'])
+      this._authenticationService.login$(this.f.email.value, this.f.password.value)
+      .subscribe(resp => {
+        if(resp.status === 200) {
+          this._authenticationService.storeUserData(resp.token, resp.user)
+          this._authenticationService.loggedIn$()
+          .subscribe(resp => {
+            console.log(resp)
+          })
+          // this._router.navigate(['finances'])
+        } else {
+          console.log(resp)
+        }
+      })
+      
     }
   }
 

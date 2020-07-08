@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-navbar-component',
@@ -8,10 +9,11 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponentComponent {
 
-  constructor(private readonly _router: Router) { }
+  constructor(private readonly _router: Router,
+    private readonly _authenticationService: AuthenticationService) { }
 
   public handleClick(params: string): void {
-    
+
     console.log(params)
     switch (params) {
       case 'signin':
@@ -25,6 +27,9 @@ export class NavbarComponentComponent {
         break;
       case 'account':
         this._router.navigate(['account'])
+      case 'logout':
+        this._authenticationService.logout();
+        break;
       default:
         return null
     }
