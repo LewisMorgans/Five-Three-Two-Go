@@ -1,12 +1,13 @@
 import { Injectable } from "@angular/core";
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
-interface UserData {
-    token: string,
-    user: object
+export interface UserData {
+    name: string,
+    email: string,
+    password: string
 }
 
 @Injectable({
@@ -27,7 +28,7 @@ export class AuthenticationService {
 
 
     get token() {
-        return this.authtoken;
+        return localStorage.getItem('token')
     }
 
     set token(token) {
@@ -35,7 +36,7 @@ export class AuthenticationService {
     };
 
     get user() {
-       return this.userProfile
+        return localStorage.getItem('user')
     };
 
     set user(user) {
@@ -43,16 +44,24 @@ export class AuthenticationService {
     }
 
     loggedIn$(): Observable<boolean> {
+
         let decode = this.decodeToken();
-        let payload = {
-            token: decode.userId
+        if (decode === null) {
+            return of(false);
+        } else {
+            let payload = {
+                token: decode.userId
+            }
+
+            return this._http.post<boolean>('api/authentication/loggedIn', payload)
         }
-        
-        return this._http.post<boolean>('api/authentication/loggedIn', payload)
+
     }
 
     decodeToken() {
-       return this._helperService.decodeToken(this.authtoken)
+        return this._helperService.decodeToken(this.authtoken)
+
+
     }
 
     storeUserData(token, user): void {
@@ -80,19 +89,42 @@ export class AuthenticationService {
         this._router.navigate([''])
     };
 
-    updateAccount$(payload: object) {
+    updateAccount$(update: object) {
+        let user = this.decodeToken();
+        let payload = {
+            ...update,
+            user
+        }
+
         return this._http.post('api/authentication/updateAccount', payload)
+    };
+
+    updatePassword$(password: 'string'): Observable<any> {
+        let user = this.decodeToken();
+        let payload = {
+            password: password,
+            ...user
+        };
+        return this._http.post('api/authentication/updatePassword', payload);
     }
 
-    getUser$(): Observable<object> {
-        return this._http.get('api/authentication/getUser')
+    getUser$(): Observable<any> {
+        let user = this.decodeToken();
+        let payload = {
+            userId: user.userId
+        }
+        return this._http.post<object | number | UserData>('api/authentication/getUser', payload)
     }
 
-    deleteAccount(): void {
-        this._http.get('api/authentication/updateAccount'); // observables?
+    deleteAccount(): Observable<any> {
+        let user = this.decodeToken();
+        let payload = {
+            userId: user.userId
+        }
+        return this._http.post('api/authentication/deleteAccount', payload); // observables?
     }
 
-    registerAccount$(payload): Observable<{}> {
+    registerAccount$(payload): Observable<any> {
         return this._http.post('api/authentication/register', payload)
     }
 

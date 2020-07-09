@@ -7,6 +7,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { NgChartjsModule } from 'ng-chartjs';
 import { ChartsModule } from 'ng2-charts';
 import { ModalPageComponent } from 'src/app/components/finances-modal/modal-page.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -16,6 +17,8 @@ import { ModalPageComponent } from 'src/app/components/finances-modal/modal-page
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     FinancesRoutingModule,
     GoogleChartsModule,
     MDBBootstrapModule.forRoot(),

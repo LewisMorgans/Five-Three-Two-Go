@@ -44,17 +44,15 @@ export class RegisterComponent implements OnInit {
       password: this.f.password.value
     }
 
-
-    // call service here
     this.submitted = true;
     if (this.validationCheck()) {
       console.log('in function')
       this._authenticationService.registerAccount$(payload)
       .subscribe(resp => {
-        if(resp === 500) {
-          this._router.navigate(['charts'])
+        if(resp.status === 200) {
+          this._router.navigate(['sign-in'])
         } else {
-          console.log('failure')
+          console.log(resp.message)
         }
       })
       

@@ -19,11 +19,6 @@ export class AuthenticationGaurdGuard implements CanActivate {
       let valid =  this._authenticationService.loggedIn$().pipe(
         map(x => x)
       )
-      // .subscribe(resp => {
-      //   console.log(resp);
-      //   this.valid = resp as boolean;
-      // }) ;
-      console.log(valid)
       return valid
   }
   

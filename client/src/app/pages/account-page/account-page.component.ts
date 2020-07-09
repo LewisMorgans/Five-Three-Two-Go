@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 
@@ -11,6 +11,10 @@ export class AccountPageComponent implements OnInit {
 
   public accountForm: FormGroup;
   public submitted = false;
+  public formUpdated = false;
+  public username;
+  public email;
+  public password;
 
   constructor(
     private readonly _fb: FormBuilder,
@@ -18,6 +22,9 @@ export class AccountPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.intialiseFormState();
+    this.getAccountDetails();
+    this.updateFormGroup();
+
   }
 
   private intialiseFormState(): void {
@@ -28,9 +35,24 @@ export class AccountPageComponent implements OnInit {
       password: ['', [Validators.required, Validators.minLength(6)]]
     })
   }
-  
+
   get f() {
     return this.accountForm.controls;
+  }
+
+  private getAccountDetails(): void {
+    this._authenticationService.getUser$()
+      .subscribe(resp => {
+        this.username = resp[0].name;
+        this.email = resp[0].email;
+        this.updateFormGroup();
+      })
+  }
+
+  private updateFormGroup(): void {
+    this.f.username.setValue(this.username);
+    this.f.email.setValue(this.email);
+
   }
 
   private validationCheck(): boolean {
@@ -40,20 +62,27 @@ export class AccountPageComponent implements OnInit {
     } else return false;
 
   }
-  public saveAccount(): void {
-    if(this.validationCheck()) {
-      this.submitted = true;
-      let payload = {
-        username: this.f.username.value,
-        email: this.f.email.value,
-        password: this.f.password.value
-      }
-      this._authenticationService.updateAccount$(payload) // ASYNC PIPE?
-    } else {
-      return null// display saved message
-    }
 
-    
+  public saveAccount(): void {
+    // remember validation
+    this.submitted = true;
+    let payload = {
+      username: this.f.username.value,
+      email: this.f.email.value
+    }
+    this._authenticationService.updateAccount$(payload)
+      .subscribe(resp => {
+        console.log(resp)
+      })
+
+  }
+
+  public savePassword(): void {
+    //remember password validation
+    this._authenticationService.updatePassword$(this.f.password.value)
+      .subscribe(_ => {
+        console.log('working')
+      })
   }
 
   public resetPassword(): void {
@@ -61,7 +90,13 @@ export class AccountPageComponent implements OnInit {
   }
 
   public deleteAccount(): void {
-    this._authenticationService.deleteAccount();
+    this._authenticationService.deleteAccount()
+    .subscribe(resp => {
+      if(resp.status == 200) {
+        this._authenticationService.logout();
+        alert('account deleted')
+      }
+    })
     // flash msg
   }
 

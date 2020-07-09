@@ -37,8 +37,8 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label class="subheading">actual expenditure</label>
-                                    <form class="form-register">
-                                        <label for="inputEmail">essentials</label>
+                                    <form [formGroup]="financesform" class="form-register">
+                                        <label for="inputEmail">essentials {{actualFifty}}</label>
                                         <input formControlName="actual50" type="number" class="form-control"
                                             required autofocus>
                                         <label for="inputUsername">wants</label>
@@ -52,9 +52,9 @@
                                 <div class="col-md-4 variationsSection">
                                     <label class="subheading">You are currently spending</label>
                                     <div class="variationsContainer">
-                                        <h2>+£200 on essentials</h2><br>
-                                        <h2>^£0 on wants</h2><br>
-                                        <h2>-£50 on essentials</h2><br>
+                                        <h2>{{diffFifty | currency : 'GBP'}} on essentials</h2><br>
+                                        <h2>{{diffThirty | currency : 'GBP'}} on wants</h2><br>
+                                        <h2>{{diffTwenty | currency : 'GBP'}} on savings/debt</h2><br>
                                     </div>
                                 </div>
                             </div>

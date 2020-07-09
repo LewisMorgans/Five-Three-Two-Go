@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 
@@ -7,14 +7,19 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
   templateUrl: './navbar-component.component.html',
   styleUrls: ['./navbar-component.component.scss']
 })
-export class NavbarComponentComponent {
+export class NavbarComponentComponent implements OnInit {
+
+   public loggedIn$; // = this._authenticationService.loggedIn$();
 
   constructor(private readonly _router: Router,
     private readonly _authenticationService: AuthenticationService) { }
 
+    ngOnInit() {
+      this.loggedIn$ = this._authenticationService.loggedIn$();
+    }
+
   public handleClick(params: string): void {
 
-    console.log(params)
     switch (params) {
       case 'signin':
         this._router.navigate(['sign-in'])
@@ -27,6 +32,7 @@ export class NavbarComponentComponent {
         break;
       case 'account':
         this._router.navigate(['account'])
+        break;
       case 'logout':
         this._authenticationService.logout();
         break;

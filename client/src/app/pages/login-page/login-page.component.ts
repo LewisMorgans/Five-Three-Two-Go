@@ -40,15 +40,15 @@ export class LoginPageComponent implements OnInit {
     if (this.validationCheck()) {
       this._authenticationService.login$(this.f.email.value, this.f.password.value)
       .subscribe(resp => {
-        if(resp.status === 200) {
+        if(resp.status == 200) {
           this._authenticationService.storeUserData(resp.token, resp.user)
           this._authenticationService.loggedIn$()
           .subscribe(resp => {
-            console.log(resp)
+            status
           })
-          // this._router.navigate(['finances'])
+          this._router.navigate(['finances'])
         } else {
-          console.log(resp)
+          console.log('HIT ELSE BLOCK')
         }
       })
       
