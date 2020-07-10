@@ -23,7 +23,6 @@ export class AccountPageComponent implements OnInit {
   ngOnInit(): void {
     this.intialiseFormState();
     this.getAccountDetails();
-    this.updateFormGroup();
 
   }
 
