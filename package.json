@@ -16,8 +16,7 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js",
-    "postinstall": "ng build --prod --aot=false --build-optimizer=false"
+    "start": "node app.js"
   },
   "author": "Lewis Morgans",
   "license": "MIT"
