@@ -80,7 +80,8 @@ export class AccountPageComponent implements OnInit {
     //remember password validation
     this._authenticationService.updatePassword$(this.f.password.value)
       .subscribe(_ => {
-        console.log('working')
+        console.log('password reset');
+        this.f.password.patchValue('')
       })
   }
 

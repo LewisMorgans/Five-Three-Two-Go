@@ -5,13 +5,13 @@
                 <div class="card-body">
                     <div class="card-innerBody d-flex align-items-center">
                         <div class="mx-auto">
-                            <h1> {{financeData.actualSpend[0] | currency :'GBP'}}</h1>
+                            <h1> {{diffFifty | currency :'GBP'}}</h1>
                         </div>
                     </div>
                 </div>
                 <div class="d-flex ">
                     <small class="mr-auto">
-                        <h3>50%</h3>
+                        <h3>fifty</h3>
                     </small>
                     <small class="ml-auto">
                         <h3>budget: {{financeData.budget[0] | currency : 'GBP'}}</h3>
@@ -24,13 +24,13 @@
                 <div class="card-body">
                     <div class="card-innerBody d-flex align-items-center">
                         <div class="mx-auto">
-                            <h1> {{financeData.actualSpend[1] | currency :'GBP'}}</h1>
+                            <h1> {{diffThirty | currency :'GBP'}}</h1>
                         </div>
                     </div>
                 </div>
                 <div class="d-flex ">
                     <small class="mr-auto">
-                        <h3>30%</h3>
+                        <h3>thirty</h3>
                     </small>
                     <small class="ml-auto">
                         <h3>budget: {{financeData.budget[1] | currency : 'GBP'}}</h3>
@@ -43,13 +43,13 @@
                 <div class="card-body">
                     <div class="card-innerBody d-flex align-items-center">
                         <div class="mx-auto">
-                            <h1>{{financeData.actualSpend[2] | currency :'GBP'}}</h1>
+                            <h1>{{diffTwenty | currency :'GBP'}}</h1>
                         </div>
                     </div>
                 </div>
                 <div class="d-flex ">
                     <small class="mr-auto">
-                        <h3>20%</h3>
+                        <h3>twenty</h3>
                     </small>
                     <small class="ml-auto">
                         <h3>budget: {{financeData.budget[2] | currency : 'GBP'}}</h3>
@@ -81,4 +81,4 @@
     </div>
 </div>
 
-<app-modal-page (finances)="setValues($event)"></app-modal-page>
+<app-modal-page (differential)="setDifferential($event)" (finances)="setValues($event)"></app-modal-page>

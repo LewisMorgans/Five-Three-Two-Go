@@ -9,6 +9,7 @@ import { DataRetrievalService } from 'src/app/services/data-retrieval.service';
 })
 export class ModalPageComponent implements OnInit {
   @Output() finances: EventEmitter<any> = new EventEmitter();
+  @Output() differential: EventEmitter<any> = new EventEmitter();
   public financesform: FormGroup
   public salary: number = 0;
   public fifty: number;
@@ -110,6 +111,10 @@ export class ModalPageComponent implements OnInit {
     this.diffFifty = (this.actualFifty - this.fifty);
     this.diffThirty = (this.actualThirty - this.thirty);
     this.diffTwenty = (this.actualTwenty - this.twenty);
+
+    let x = [this.diffFifty, this.diffThirty, this.diffTwenty];
+
+    this.differential.emit(x);
 
   }
 

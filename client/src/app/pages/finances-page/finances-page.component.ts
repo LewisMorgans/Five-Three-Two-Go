@@ -22,13 +22,16 @@ export class FinancesPageComponent implements OnInit {
   public financeData = {
     actualSpend: [],
     budget: []
-  }
+  };
+  public diffFifty;
+  public diffThirty;
+  public diffTwenty;
 
   constructor(private readonly _dataService: DataRetrievalService) {
   }
 
   ngOnInit() {
-
+    console.log(this.financeData)
   }
 
   public setValues(e) {
@@ -39,5 +42,13 @@ export class FinancesPageComponent implements OnInit {
 
     this.financeData.actualSpend = e.actualSpend.map(x => x);
     this.financeData.budget = e.budget.map(x => x);
+  }
+
+  public setDifferential(e) {
+    console.log(e)
+    this.diffFifty = e[0];
+    this.diffThirty = e[1];
+    this.diffTwenty =  e[2];
+
   }
 }
