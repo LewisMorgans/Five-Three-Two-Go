@@ -1,23 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ModalPageComponent } from './modal-page.component';
+import { FormBuilder } from '@angular/forms';
+import { DataRetrievalService } from 'src/app/services/data-retrieval.service';
 
 describe('ModalPageComponent', () => {
   let component: ModalPageComponent;
-  let fixture: ComponentFixture<ModalPageComponent>;
+  let mockFormBuilder = new FormBuilder();
+  let mockDataService: DataRetrievalService;
 
   beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ ModalPageComponent ]
-    })
-    .compileComponents();
+
+    component = new ModalPageComponent(mockFormBuilder, mockDataService)
   }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(ModalPageComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
 
   it('should create', () => {
     expect(component).toBeTruthy();

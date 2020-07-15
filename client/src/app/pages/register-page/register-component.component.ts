@@ -46,7 +46,6 @@ export class RegisterComponent implements OnInit {
 
     this.submitted = true;
     if (this.validationCheck()) {
-      console.log('in function')
       this._authenticationService.registerAccount$(payload)
       .subscribe(resp => {
         if(resp.status === 200) {

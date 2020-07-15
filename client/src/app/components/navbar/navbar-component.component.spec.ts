@@ -1,13 +1,15 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NavbarComponentComponent } from './navbar-component.component';
+import { NavbarComponentComponent as NavbarComponent } from './navbar-component.component';
 import { Router } from '@angular/router';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { of } from 'rxjs';
 
 describe('NavbarComponentComponent', () => {
-  let component: NavbarComponentComponent;
-  let fixture: ComponentFixture<NavbarComponentComponent>;
+  let component: NavbarComponent;
   let mockRouter;
+  let _authenticationService: AuthenticationService;
 
   beforeEach(async(() => {
 
@@ -15,16 +17,11 @@ describe('NavbarComponentComponent', () => {
       navigate: jasmine.createSpy('navigate') 
     };
 
-    TestBed.configureTestingModule({
-      declarations: [NavbarComponentComponent],
-      providers: [
-        { provide: Router, useValue: mockRouter }
-      ],
-      imports: [HttpClientTestingModule]
-    })
-      .compileComponents();
-    fixture = TestBed.createComponent(NavbarComponentComponent);
-    component = fixture.componentInstance;
+    _authenticationService = {
+      loggedIn$: () => of(true)
+    } as any
+
+    component = new NavbarComponent(mockRouter, _authenticationService)
 
   }));
 

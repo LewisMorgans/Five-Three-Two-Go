@@ -1,13 +1,17 @@
 import { TestBed } from '@angular/core/testing';
 
-import { AuthenticationGaurdGuard } from './authentication-gaurd.guard';
+import { AuthenticationGaurdGuard as AuthenticationGaurd } from './authentication-gaurd.guard';
+import { AuthenticationService } from '../services/authentication.service';
 
 describe('AuthenticationGaurdGuard', () => {
-  let guard: AuthenticationGaurdGuard;
+  let guard: AuthenticationGaurd;
+  let mockAuthenticationService: AuthenticationService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    guard = TestBed.inject(AuthenticationGaurdGuard);
+
+    
+
+    guard = new AuthenticationGaurd(mockAuthenticationService)
   });
 
   it('should be created', () => {
