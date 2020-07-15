@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 
@@ -12,18 +12,18 @@ export class AccountPageComponent implements OnInit {
   public accountForm: FormGroup;
   public submitted = false;
   public formUpdated = false;
-  public username;
-  public email;
-  public password;
+  public username: string;
+  public email: string;
+  public password: string;
 
   constructor(
     private readonly _fb: FormBuilder,
-    private readonly _authenticationService: AuthenticationService) { }
+    private readonly _authenticationService: AuthenticationService
+  ) { }
 
   ngOnInit(): void {
     this.intialiseFormState();
     this.getAccountDetails();
-
   }
 
   private intialiseFormState(): void {
@@ -51,53 +51,43 @@ export class AccountPageComponent implements OnInit {
   private updateFormGroup(): void {
     this.f.username.setValue(this.username);
     this.f.email.setValue(this.email);
-
-  }
-
-  private validationCheck(): boolean {
-
-    if (this.accountForm.valid) {
-      return true;
-    } else return false;
-
   }
 
   public saveAccount(): void {
-    // remember validation
-    this.submitted = true;
     let payload = {
       username: this.f.username.value,
       email: this.f.email.value
     }
-    this._authenticationService.updateAccount$(payload)
-      .subscribe(resp => {
-        console.log(resp)
-      })
 
+    if (this.f.username.valid && this.f.email.valid) {
+      this._authenticationService.updateAccount$(payload)
+        .subscribe()
+    } else {
+      // flash message
+    }
   }
 
   public savePassword(): void {
-    //remember password validation
-    this._authenticationService.updatePassword$(this.f.password.value)
-      .subscribe(_ => {
-        console.log('password reset');
-        this.f.password.patchValue('')
-      })
-  }
-
-  public resetPassword(): void {
-    this._authenticationService.resetPassword$(this.f.password.value)
+    if (this.f.password.valid) {
+      this._authenticationService.updatePassword$(this.f.password.value)
+        .subscribe(_ => {
+          this.f.password.patchValue('')
+        })
+    } else {
+      // flash messagee
+    }
   }
 
   public deleteAccount(): void {
     this._authenticationService.deleteAccount()
-    .subscribe(resp => {
-      if(resp.status == 200) {
-        this._authenticationService.logout();
-        alert('account deleted')
-      }
-    })
-    // flash msg
+      .subscribe(resp => {
+        if (resp.status == 200) {
+          this._authenticationService.logout();
+          alert('account deleted')
+        } else {
+          // flash message
+        }
+      });
   }
 
 }

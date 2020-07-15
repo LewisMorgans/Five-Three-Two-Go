@@ -80,10 +80,6 @@ export class AuthenticationService {
         return this._http.post('api/authentication/login', payload)
     }
 
-    resetPassword$(password: string): Observable<{}> {
-        return this._http.post('api/authentication/resetPassword', password)
-    }
-
     logout(): void {
         localStorage.clear();
         this._router.navigate([''])

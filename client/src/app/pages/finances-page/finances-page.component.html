@@ -4,8 +4,8 @@
             <div class="card">
                 <div class="card-body">
                     <div class="card-innerBody d-flex align-items-center">
-                        <div class="mx-auto">
-                            <h1> {{diffFifty | currency :'GBP'}}</h1>
+                        <div class="mx-auto" [ngClass]="{'errorClass': differential[0] > 0}">
+                            <h1>{{differential[0] | currency :'GBP'}}</h1>
                         </div>
                     </div>
                 </div>
@@ -23,8 +23,8 @@
             <div class="card">
                 <div class="card-body">
                     <div class="card-innerBody d-flex align-items-center">
-                        <div class="mx-auto">
-                            <h1> {{diffThirty | currency :'GBP'}}</h1>
+                        <div class="mx-auto" [ngClass]="{'errorClass': differential[1] > 0}" >
+                            <h1> {{differential[1] | currency :'GBP'}}</h1>
                         </div>
                     </div>
                 </div>
@@ -42,8 +42,8 @@
             <div class="card">
                 <div class="card-body">
                     <div class="card-innerBody d-flex align-items-center">
-                        <div class="mx-auto">
-                            <h1>{{diffTwenty | currency :'GBP'}}</h1>
+                        <div class="mx-auto" [ngClass]="{'errorClass': differential[1] > 0}">
+                            <h1>{{differential[2] | currency :'GBP'}}</h1>
                         </div>
                     </div>
                 </div>

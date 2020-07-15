@@ -2,17 +2,16 @@ import { FinancesPageComponent } from './finances-page.component';
 
 describe('FinancesPageComponent', () => {
   let component: FinancesPageComponent;
-  let _dataService;
 
   beforeEach(() => {
-    component = new FinancesPageComponent(_dataService)
+    component = new FinancesPageComponent()
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  it('Should assign the emitted values from the child to the local variables', () => {
+  it('[SetValues] Should assign the emitted values from the child to the local variables', () => {
 
     let mockEvent = {
       actualSpend: [500, 300, 200],
@@ -24,5 +23,15 @@ describe('FinancesPageComponent', () => {
     expect(component.financeData.budget).toEqual(mockEvent.budget);
     expect(component.financeData.actualSpend).toEqual(mockEvent.actualSpend);
   });
+
+  it('[SetDifferential] Should map event values to local array', () => {
+    let mockEvent = [
+      100, 200, 300
+    ];
+
+    expect(component.differential).toEqual([]);
+    component.setDifferential(mockEvent);
+    expect(component.differential).toEqual([100, 200, 300]);
+  })
 
 })

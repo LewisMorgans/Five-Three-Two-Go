@@ -2,8 +2,9 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NavbarComponentComponent } from './navbar-component.component';
 import { Router } from '@angular/router';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
-fdescribe('NavbarComponentComponent', () => {
+describe('NavbarComponentComponent', () => {
   let component: NavbarComponentComponent;
   let fixture: ComponentFixture<NavbarComponentComponent>;
   let mockRouter;
@@ -18,7 +19,8 @@ fdescribe('NavbarComponentComponent', () => {
       declarations: [NavbarComponentComponent],
       providers: [
         { provide: Router, useValue: mockRouter }
-      ]
+      ],
+      imports: [HttpClientTestingModule]
     })
       .compileComponents();
     fixture = TestBed.createComponent(NavbarComponentComponent);

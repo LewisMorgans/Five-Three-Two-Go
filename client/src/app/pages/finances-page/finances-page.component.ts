@@ -1,16 +1,13 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Label } from 'ng2-charts';
-import { DataRetrievalService } from 'src/app/services/data-retrieval.service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-finances-page',
   templateUrl: './finances-page.component.html',
   styleUrls: ['./finances-page.component.scss']
 })
-export class FinancesPageComponent implements OnInit {
-
+export class FinancesPageComponent {
 
   public barChartOptions: ChartOptions = {
     responsive: true
@@ -23,16 +20,9 @@ export class FinancesPageComponent implements OnInit {
     actualSpend: [],
     budget: []
   };
-  public diffFifty;
-  public diffThirty;
-  public diffTwenty;
+  public differential = [];
 
-  constructor(private readonly _dataService: DataRetrievalService) {
-  }
-
-  ngOnInit() {
-    console.log(this.financeData)
-  }
+  constructor() { }
 
   public setValues(e) {
     this.barChartData = [
@@ -45,10 +35,6 @@ export class FinancesPageComponent implements OnInit {
   }
 
   public setDifferential(e) {
-    console.log(e)
-    this.diffFifty = e[0];
-    this.diffThirty = e[1];
-    this.diffTwenty =  e[2];
-
+    this.differential = e.map(x => x);
   }
 }
