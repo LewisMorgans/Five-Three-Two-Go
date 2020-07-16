@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NavbarComponentComponent as NavbarComponent } from './navbar-component.component';
 import { Router } from '@angular/router';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { AuthenticationService } from 'src/app/services/authentication.service';
+import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
 import { of } from 'rxjs';
 
 describe('NavbarComponentComponent', () => {

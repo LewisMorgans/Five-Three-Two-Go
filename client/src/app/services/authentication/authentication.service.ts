@@ -55,13 +55,10 @@ export class AuthenticationService {
 
             return this._http.post<boolean>('api/authentication/loggedIn', payload)
         }
-
     }
 
     decodeToken() {
         return this._helperService.decodeToken(this.authtoken)
-
-
     }
 
     storeUserData(token, user): void {
@@ -85,7 +82,7 @@ export class AuthenticationService {
         this._router.navigate([''])
     };
 
-    updateAccount$(update: object) {
+    updateAccount$(update: object): Observable<any> {
         let user = this.decodeToken();
         let payload = {
             ...update,
@@ -95,7 +92,7 @@ export class AuthenticationService {
         return this._http.post('api/authentication/updateAccount', payload)
     };
 
-    updatePassword$(password: 'string'): Observable<any> {
+    updatePassword$(password: string): Observable<any> {
         let user = this.decodeToken();
         let payload = {
             password: password,
@@ -112,7 +109,7 @@ export class AuthenticationService {
         return this._http.post<object | number | UserData>('api/authentication/getUser', payload)
     }
 
-    deleteAccount(): Observable<any> {
+    deleteAccount$(): Observable<any> {
         let user = this.decodeToken();
         let payload = {
             userId: user.userId

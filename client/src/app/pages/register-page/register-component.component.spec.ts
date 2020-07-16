@@ -1,7 +1,7 @@
 import { async } from '@angular/core/testing';
 import { RegisterComponent } from './register-component.component';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { AuthenticationService } from 'src/app/services/authentication.service';
+import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
 import { of } from 'rxjs';
 
 describe('RegisterComponentComponent', () => {

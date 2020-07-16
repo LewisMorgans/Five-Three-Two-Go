@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { AuthenticationService } from 'src/app/services/authentication.service';
+import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
 
 @Component({
   selector: 'app-account-page',
@@ -79,7 +79,7 @@ export class AccountPageComponent implements OnInit {
   }
 
   public deleteAccount(): void {
-    this._authenticationService.deleteAccount()
+    this._authenticationService.deleteAccount$()
       .subscribe(resp => {
         if (resp.status == 200) {
           this._authenticationService.logout();

@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { DataRetrievalService } from 'src/app/services/data-retrieval.service';
+import { DataRetrievalService } from 'src/app/services/data/data-retrieval.service';
 
 @Component({
   selector: 'app-modal-page',

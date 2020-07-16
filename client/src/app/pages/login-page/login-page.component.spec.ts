@@ -1,7 +1,7 @@
 import { LoginPageComponent } from './login-page.component';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { of } from 'rxjs';
-import { AuthenticationService } from 'src/app/services/authentication.service';
+import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
 
 describe('LoginPageComponent', () => {
   let component: LoginPageComponent;

@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
 import { AuthenticationGaurdGuard as AuthenticationGaurd } from './authentication-gaurd.guard';
-import { AuthenticationService } from '../services/authentication.service';
+import { AuthenticationService } from '../services/authentication/authentication.service';
 
 describe('AuthenticationGaurdGuard', () => {
   let guard: AuthenticationGaurd;

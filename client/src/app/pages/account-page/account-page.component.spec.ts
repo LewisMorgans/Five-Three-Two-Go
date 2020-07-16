@@ -1,6 +1,6 @@
 import { AccountPageComponent } from './account-page.component';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { AuthenticationService } from 'src/app/services/authentication.service';
+import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
 import { of } from 'rxjs';
 
 describe('AccountPageComponent', () => {
@@ -19,7 +19,7 @@ describe('AccountPageComponent', () => {
 
     _authenticationService = {
       updateAccount$: () => of({ }),
-      deleteAccount: () => of({ }),
+      deleteAccount$: () => of({ }),
       updatePassword$: () => of({ }),
       getUser$: () => of([
         {
@@ -66,7 +66,7 @@ describe('AccountPageComponent', () => {
   })
 
   it('[DeleteAccount] Should call delete account method from authentication service', () => {
-    const spy = spyOn(_authenticationService, 'deleteAccount').and.callThrough();
+    const spy = spyOn(_authenticationService, 'deleteAccount$').and.callThrough();
     component.deleteAccount();
     expect(spy).toHaveBeenCalled();
   })
