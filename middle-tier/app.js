@@ -1,8 +1,6 @@
 const express = require('express');
 const path = require('path');
 const app = express();
-const mongo = require('mongodb');
-const passport = require('passport');
 const port =  process.env.PORT || 9090;
 require('dotenv').config();
 const bodyParser = require('body-parser');
@@ -21,6 +19,7 @@ app.get('*/', (req, res) => {
     const indexFile = path.join(__dirname, '../client/dist/index.html');
     res.sendFile(indexFile);
 })
+console.log(process.env.MONGOURI)
 
 app.listen(port, () => {
     console.log(`Server running on ${port}`)

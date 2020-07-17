@@ -29,8 +29,6 @@ export class ModalPageComponent implements OnInit {
     this.initialiseForm();
     this.getUserFinance();
     this.updateFormGroup();
-
-
   }
 
   private initialiseForm(): void {
@@ -45,16 +43,14 @@ export class ModalPageComponent implements OnInit {
     return this.financesform.controls;
   }
 
-  private getBudget(): void { // move to getUserFinance function once API created.
+  public getBudget(): void { // move to getUserFinance function once API created.
     this.fifty = (50 * this.salary) / 100;
     this.thirty = (30 * this.salary) / 100;
     this.twenty = (20 * this.salary) / 100;
   }
 
-  public calculateBudget(e: Event): void {
-    this.fifty = (50 * this.salary) / 100;
-    this.thirty = (30 * this.salary) / 100;
-    this.twenty = (20 * this.salary) / 100;
+  public calculateNewBudget(e: Event): void {
+    this.getBudget();
   }
 
   private getUserFinance(): void {
@@ -79,7 +75,7 @@ export class ModalPageComponent implements OnInit {
             this.twenty
           ]
         }
-    
+
         this.finances.emit(x)
       });
   }
@@ -115,7 +111,6 @@ export class ModalPageComponent implements OnInit {
     let x = [this.diffFifty, this.diffThirty, this.diffTwenty];
 
     this.differential.emit(x);
-
   }
 
 }
