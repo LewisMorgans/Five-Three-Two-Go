@@ -38,7 +38,7 @@ export class LoginPageComponent implements OnInit {
   public onSubmit(): void {
     this.submitted = true;
     if (this.validationCheck()) {
-      this._authenticationService.login$(this.f.email.value, this.f.password.value)
+      this._authenticationService.userLogin$(this.f.email.value, this.f.password.value)
         .subscribe(resp => {
           if (resp.status == 200) {
             this._authenticationService.storeUserData(resp.token, resp.user)

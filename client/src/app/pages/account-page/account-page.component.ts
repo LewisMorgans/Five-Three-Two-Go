@@ -82,7 +82,7 @@ export class AccountPageComponent implements OnInit {
     this._authenticationService.deleteAccount$()
       .subscribe(resp => {
         if (resp.status == 200) {
-          this._authenticationService.logout();
+          this._authenticationService.userLogout();
           alert('account deleted')
         } else {
           // flash message

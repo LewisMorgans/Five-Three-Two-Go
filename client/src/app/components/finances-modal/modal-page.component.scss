@@ -1,14 +1,14 @@
 h1 {
     font-family: titleFont;
     font-size: 500%;
-    color: white;
+    color: #3C2D4C;
     text-align: center;
     padding-top: 5%;
 }
 
 h2 {
     font-family: titleFont;
-    color: #364f6b;
+    color: #98A9AE;
     text-align: left !important;
     font-size: 250%;
 }
@@ -22,22 +22,26 @@ h2 {
     margin: 0 auto;
 
     .modal-content {
-        background-color: #f0f0f0;
+        background-color: #27293D;
         border-radius: 50px;
 
         .form {
-            input,
-            input:focus {
+            input {
                 border-radius: 30px;
-                color: #fc5185;
+                color: #98A9AE;
                 width: 50% !important;
-                // margin: 5% auto;
+                background-color: #27293D;
+                border-color: #2B3553;
+            }
+
+            input:focus {
+                border-color: #E14ECA;
             }
 
             label {
                 font-family: titleFont;
                 font-size: 150%;
-                color: #364f6b;
+                color: #98A9AE;
                 margin: 2%;
                 // padding: 2%
             }
@@ -49,7 +53,7 @@ h2 {
             .go {
                 width: 40%;
                 font-size: 200%;
-                background-color: #fc5185;
+                background-color: #E14ECA;
                 border-radius: 30px;
                 color: white;
                 padding: 0 5%;
@@ -58,7 +62,7 @@ h2 {
     }
 
     .imageContainer {
-        background-color: #fc5185;
+        background-color: #0DE69C;
         border-radius: 5%;
 
         .image {
@@ -69,7 +73,7 @@ h2 {
     }
 
     .subheading {
-        color: #fc5185 !important;
+        color: #CD51E0 !important;
         margin-bottom: 5% !important;
     }
 
@@ -78,10 +82,10 @@ h2 {
     }
 
     .variationsContainer {
-        border: 1px #707070 solid;
+        border: 1px #2B3553 solid;
         width: 100%;
-        height: 100%;
-        background-color: white;
+        height: 70%;
+        background-color: #27293D;
         padding: 5%;
     }
 }

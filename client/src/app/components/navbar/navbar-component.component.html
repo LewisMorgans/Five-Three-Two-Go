@@ -5,23 +5,15 @@
         <img src="../../../assets/images/hamburger.svg">
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" (click)="handleClick('finances')">finances</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" (click)="handleClick('account')">account</a>
-            </li>
+        <ul class="navbar-nav ml-auto">
             <li class="nav-item">
                 <a class="nav-link" (click)="handleClick('logout')">logout</a>
             </li>
-        </ul>
-        
-            <form  class="form-inline my-2 my-lg-0 ml-auto">
+        </ul>        
+            <form class="form-inline my-2 my-lg-0 ">
+
                 <button (click)="handleClick('signin')" type="button" class="btn btn-lg">Sign In</button>
                 <button (click)="handleClick('register')" type="button" class="btn btn-lg">Register</button>
             </form>
-      
-
     </div>
 </nav>

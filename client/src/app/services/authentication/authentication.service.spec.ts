@@ -91,7 +91,7 @@ describe(('HttpService Test'), () => {
     it('[Login$] it should make a post request to the login API', () => {
         const API = 'api/authentication/login';
 
-        service.login$('lewis@gmail.com', 'fakepass')
+        service.userLogin$('lewis@gmail.com', 'fakepass')
             .subscribe(resp => {
                 expect(resp).toEqual({ user: true })
             });
@@ -103,7 +103,7 @@ describe(('HttpService Test'), () => {
     });
 
     it('[Logout] It should clear the local storage and navigate to the home screen', () => {
-        service.logout();
+        service.userLogout();
         expect(store).toEqual({})
         expect(mockRouter.navigate).toHaveBeenCalledWith([''])
     });

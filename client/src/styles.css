@@ -4,9 +4,13 @@
 }
 
 body {
-    background-color: #364F6B;
+    background-color: #1E1E2F;
 }
 
 .errorClass {
     border-color: red !important;
+}
+
+*:focus {
+    outline: 0ch;
 }

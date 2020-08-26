@@ -21,12 +21,12 @@ h2 {
 h3 {
     font-family: titleFont;
     font-size: 25px;
-    color: #FC5185;
+    color: #CD51E0;
 }
 
 .card {
-    background-color: #F0F0F0;
-    border-radius: 25px;
+    background-color: #27293D;
+    border-radius: 5px;
     padding: 0 5%;
 }
 
@@ -42,12 +42,13 @@ h3 {
     font-family: titleFont;
 
     .go {
-        width: 100%;
+        min-width: 40%;
+        max-width: 100%;
         font-size: 200%;
-        background-color: #fc5185;
-        border-radius: 30px;
-        border: 2px solid #fc5185;
-        color: white;
+        background-color: #C553EA;
+        border-radius: 10px;
+        border: 2px solid #C553EA;
+        color: #ffffff;
         padding: 0 5%;
     }
 }

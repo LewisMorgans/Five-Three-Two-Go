@@ -1,14 +1,8 @@
-.title {
+.titleFont {
     font-family: titleFont;
-    font-size: 80px;
+    font-size: 32px;
     text-align: center;
-    color: white;
-    padding: 2%;
-    margin-top: 10%;
-}
-
-.row {
-    margin-top: 300px !important;
+    color: #E14ECA;
 }
 
 .col-md-4 {
@@ -25,39 +19,32 @@
 }
 
 .container {
-    .promo {
-        height: 600px !important;
-        max-height: 600px;
-        background-color: #fc5185 !important;
-
-        .image {
-            width: 60%;
-            display: block;
-            margin: 25% auto
-        }
-    }
 
     .form {
-        height: 600px !important;
-        background-color: #f0f0f0;
+        background-color: #27293D;
 
-        input,
-        input:focus {
+        input {
             border-radius: 30px;
-            color: #fc5185;
+            color: #98A9AE;
             width: 80% !important;
-            margin: 5% auto;
+            background-color: #27293D;
+            border-color: #2B3553;
+            margin: 3% auto;
+        }
+
+        input:focus {
+            border-color: #E14ECA;
         }
 
         label {
             font-family: titleFont;
             font-size: 150%;
-            color: #364f6b;
-            margin-left: 10%;
+            color: #98A9AE;
+            margin: 2%;
         }
 
         .form-register {
-            margin-top: 22%;
+            margin-top: 2%;
             margin-bottom: 22%;
         }
 
@@ -69,9 +56,9 @@
             .go {
                 width: 55%;
                 font-size: 150%;
-                background-color: white;
+                background-color: #E14ECA;
                 border-radius: 30px;
-                color: #364f6b;
+                color: #ffffff;
                 padding: 0 5%;
                 display: block;
                 margin: 5% auto;

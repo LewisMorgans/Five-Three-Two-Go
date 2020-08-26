@@ -1,8 +1,10 @@
 <div class="container">
     <div class="row mt-5">
-        <div class="col-md-4 ml-auto">
+        <div class="col-md-8 mx-auto">
+            
             <div class="card form">
                 <div class="card-body">
+                    <h4 class="titleFont">Account Settings</h4>
                     <form  [formGroup]="accountForm" class="form-register">
                         <label for="inputEmail">username</label>
                         <input formControlName="username" type="text" id="inputEmail" class="form-control" required
@@ -27,15 +29,6 @@
                             delete account
                         </button>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 mr-auto promoContainer">
-            <div class="card promo">
-                <div class="card-body">
-                    <h1 class="title">account</h1>
-                    <img class="image" src="../../../assets/images/settings.svg">
-                    <h1 class="title">settings</h1>
                 </div>
             </div>
         </div>

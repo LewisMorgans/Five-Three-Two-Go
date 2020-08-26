@@ -7,7 +7,8 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 export interface UserData {
     name: string,
     email: string,
-    password: string
+    password: string,
+    userId?: string
 }
 
 @Injectable({
@@ -15,111 +16,89 @@ export interface UserData {
 })
 export class AuthenticationService {
 
-    private userProfile;
-
+    private currentUser: UserData;
     constructor(
         private readonly _http: HttpClient,
         private readonly _router: Router,
         private readonly _helperService: JwtHelperService
     ) { }
 
-    authtoken;
-    options;
-
-
     get token() {
         return localStorage.getItem('token')
     }
-
-    set token(token) {
-        this.authtoken = token;
-    };
 
     get user() {
         return localStorage.getItem('user')
     };
 
-    set user(user) {
-        this.userProfile = user;
-    }
-
     loggedIn$(): Observable<boolean> {
-
-        let decode = this.decodeToken();
-        if (decode === null) {
+        console.log(this.currentUser);
+        console.log(this.token);
+        console.log(this.decodeToken());
+        
+        
+        
+        if (!this.currentUser) {
             return of(false);
         } else {
-            let payload = {
-                token: decode.userId
-            }
-
-            return this._http.post<boolean>('api/authentication/loggedIn', payload)
+            const payload = { token: this.currentUser.userId }
+            return this._http.post<boolean>('api/authentication/loggedIn', payload);
         }
     }
 
     decodeToken() {
-        return this._helperService.decodeToken(this.authtoken)
-    }
+        this.currentUser = this._helperService.decodeToken(this.token);
+    };
 
     storeUserData(token, user): void {
         localStorage.setItem('token', token);
-        localStorage.setItem('user', JSON.stringify(user))
-        this.token = token;
-        this.user = user;
-    }
+        localStorage.setItem('user', JSON.stringify(user));
+        this.decodeToken();
+    };
 
-    login$(email: string, password: string): Observable<any> {
-        let payload = {
+    userLogin$(email: string, password: string): Observable<any> {
+        const payload = {
             emailAddress: email,
             password: password
-        }
+        };
 
-        return this._http.post('api/authentication/login', payload)
-    }
+        return this._http.post('api/authentication/login', payload);
+    };
 
-    logout(): void {
+    userLogout(): void {
         localStorage.clear();
-        this._router.navigate([''])
+        this._router.navigate(['']);
     };
 
     updateAccount$(update: object): Observable<any> {
-        let user = this.decodeToken();
-        let payload = {
+        const payload = {
             ...update,
-            user
-        }
-
+            user: this.currentUser
+        };
         return this._http.post('api/authentication/updateAccount', payload)
     };
 
     updatePassword$(password: string): Observable<any> {
-        let user = this.decodeToken();
-        let payload = {
+        const payload = {
             password: password,
-            ...user
+            ...this.currentUser
         };
         return this._http.post('api/authentication/updatePassword', payload);
-    }
+    };
 
     getUser$(): Observable<any> {
-        let user = this.decodeToken();
-        let payload = {
-            userId: user.userId
-        }
-        return this._http.post<object | number | UserData>('api/authentication/getUser', payload)
-    }
+        const payload = { userId: this.currentUser.userId };
+        return this._http.post<object | number | UserData>('api/authentication/getUser', payload);
+    };
 
     deleteAccount$(): Observable<any> {
-        let user = this.decodeToken();
-        let payload = {
-            userId: user.userId
-        }
-        return this._http.post('api/authentication/deleteAccount', payload); // observables?
-    }
+        const payload = { userId: this.currentUser.userId };
+        return this._http.post('api/authentication/deleteAccount', payload);
+    };
 
     registerAccount$(payload): Observable<any> {
         return this._http.post('api/authentication/register', payload)
-    }
+    };
 
 
 }

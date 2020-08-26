@@ -8,12 +8,14 @@ import { NgChartjsModule } from 'ng-chartjs';
 import { ChartsModule } from 'ng2-charts';
 import { ModalPageComponent } from 'src/app/components/finances-modal/modal-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AccountPageComponent } from '../account-page/account-page.component';
 
 
 @NgModule({
   declarations: [
     FinancesPageComponent,
-    ModalPageComponent
+    ModalPageComponent,
+    AccountPageComponent
   ],
   imports: [
     CommonModule,

@@ -1,39 +1,28 @@
 .container-fluid {
-    background-image: url("../../../assets/images/landingBG.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100%;
-    z-index: -1;
-    overflow: hidden;
+    background-color: #364F6B;
+    min-height: 93vh;
 
     .headingText {
         font-family: titleFont;
         color: #43dde6;
-        font-size: 700%;
-        margin: 15% auto;
+        font-size: 5vw;
+        margin: 12% auto;
         display: block;
         text-align: right;
     }
 
-    .subHeading {
-        font-family: titleFont;
-        color: white;
-        font-size: 700%;
-        margin: 7% auto;
-        margin-top: 0%;
-        display: block;
-        text-align: right;
-    }
+    
 
     .headingContainer {
-        margin-top: 15%
+        margin-top: 10%
     }
 
     .pictureContainer {
-        margin-top: 12%;
+        margin-top: 7%;
         .picture {
             margin-top: 12%;
             width: 80%;
+            bottom: 0;
         }
     }
 
@@ -54,26 +43,26 @@
     }
 }
 
-@media screen and (max-width: 400px) {
+// @media screen and (max-width: 400px) {
 
-    .picture {
-        width: 90% !important;
-        margin-top: 1px !important;
-    }
-    .secondHeading {
-        display: none;
-    }
+//     .picture {
+//         width: 90% !important;
+//         margin-top: 1px !important;
+//     }
+//     .secondHeading {
+//         display: none;
+//     }
 
-    .headingContainer {
-        .headingText {
-            font-family: titleFont;
-            color: #43dde6;
-            font-size: 700%;
-            margin-top: 15%;
-            margin-bottom: 0px;
-            display: block;
-            text-align: right;
-        }
-    }
+//     .headingContainer {
+//         .headingText {
+//             font-family: titleFont;
+//             color: green;
+//             font-size: 5vw;
+//             margin-top: 15%;
+//             margin-bottom: 0px;
+//             display: block;
+//             text-align: right;
+//         }
+//     }
 
-}
+// }
