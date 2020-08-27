@@ -60,4 +60,8 @@ export class IndexPageComponent implements OnInit {
     } else return false;
 
   }
+
+  public navigate(): void {
+    this._router.navigate(['/register']);
+  }
 }

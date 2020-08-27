@@ -9,7 +9,7 @@ import { AuthenticationService } from 'src/app/services/authentication/authentic
 })
 export class NavbarComponentComponent implements OnInit {
 
-   public loggedIn$; // = this._authenticationService.loggedIn$();
+   public loggedIn = this._authenticationService.loggedIn$();
 
   constructor(private readonly _router: Router,
     private readonly _authenticationService: AuthenticationService) {

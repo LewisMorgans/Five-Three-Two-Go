@@ -11,12 +11,12 @@
                     <input placeholder="Password" formControlName="password" type="password" id="inputPassword"
                         class="form-control" required [ngClass]="{'errorClass': f.password.errors && submitted}">
                     <div class="btnContainer mb-5">
-                        <button type="button" class="btn btn-primary go mt-5">
+                        <button type="button" class="btn btn-primary go mt-5" (click)="onSubmit()">
                             Sign In
                         </button>
                     </div>
                     <div class="callToAction">
-                        <small>Don't have an account? <strong><br><span style="cursor: pointer">Sign Up!</span></strong></small>
+                        <small>Don't have an account? <strong><br><span style="cursor: pointer"><a (click)="navigate()">Sign Up!</a></span></strong></small>
                     </div>
                     
                 </form>

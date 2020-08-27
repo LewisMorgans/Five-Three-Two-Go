@@ -18,7 +18,9 @@ export class AuthenticationGaurdGuard implements CanActivate {
      
       let valid =  this._authenticationService.loggedIn$().pipe(
         map(x => x)
+        
       )
+      console.log(valid)
       return valid
   }
   

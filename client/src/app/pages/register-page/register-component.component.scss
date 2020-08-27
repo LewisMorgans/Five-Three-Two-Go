@@ -1,87 +1,86 @@
-.title {
-    font-family: titleFont;
-    font-size: 80px;
-    text-align: center;
-    color: white;
-    padding: 2%;
-    margin-top: 10%;
-}
+.container-fluid {
 
-.row {
-    margin-top: 300px !important;
-}
+    .row {
+        margin-top: 300px !important;
+    } 
 
-.col-md-4 {
-    margin: 0px;
-    padding: 0px;
-}
+    background-color: #1E1E2F;
+    min-height: 50vh;
 
-.info {
-    font-size: 35px;
-    text-align: center;
-    color: white;
-    line-height: 1em;
-    padding-top: 12vh;
-}
-
-.container {
-    .promo {
-        height: 600px !important;
-        max-height: 600px;
-        background-color: #fc5185 !important;
-
-        .image {
-            width: 100%;
-        }
+    .card {
+        background-color: #27293D;
+        border-radius: 5px;
+        padding: 15%;
+        box-shadow: 1px 1px 15px 1px #E14ECA;
     }
 
-    .form {
-        height: 600px !important;
-        background-color: #f0f0f0;
+    .headingText {
+        font-family: titleFont;
+        color: #17B978;
+        font-size: 5vw;
+        margin: 12% auto;
+        display: block;
+        text-align: right;
+    }
 
-        input,
-        input:focus {
-            border-radius: 30px;
-            color: #fc5185;
-            width: 80% !important;
-            margin: 5% auto;
-        }
+    .logo {
+        font-family: logoFont;
+        font-size: 80px;
+        color: #E14ECA;
+        text-align: center;
+    }
 
-        label {
-            font-family: titleFont;
-            font-size: 150%;
-            color: #364f6b;
-            margin-left: 10%;
-        }
+    
+    input {
+        border-radius: 10px;
+        color: #98A9AE;
+        width: 80% !important;
+        background-color: #27293D;
+        border-color: #2B3553;
+        margin: 10% auto;
+    }
 
-        .form-register {
-            margin-top: 22%;
-            margin-bottom: 22%;
-        }
+    input:focus {
+        border-color: #E14ECA;
+    }
 
-        .btnContainer {
-            margin: 0 auto;
-            text-align: center;
-            font-family: titleFont;
+    label {
+        font-family: titleFont;
+        font-size: 150%;
+        color: #98A9AE;
+        margin: 2%;
+    }
+}
 
-            .go {
-                width: 40%;
-                font-size: 200%;
-                background-color: #fc5185;
-                border-radius: 30px;
-                color: white;
-                padding: 0 5%;
-            }
-        }
+.callToAction {
+    color: #C553EA;
+    text-align: center;
+    padding: 5%;
+    margin-top: 5% !important;
+    font-size: 15px;
+}
+
+.btnContainer {
+    margin: 0 auto;
+    text-align: center;
+    font-family: titleFont;
+
+    .go {
+        min-width: 40%;
+        max-width: 100%;
+        font-size: 200%;
+        background-color: #C553EA;
+        border-radius: 10px;
+        border: 2px solid #C553EA;
+        color: #2B3553;
+        padding: 0 5%;
     }
 }
 
 @media screen and (max-width: 400px) {
-    .promo {
-        display: none;
-    }
 
     .row {
-        margin-top: 100px !important;
-    }
+        margin-top: 0px !important;
+    } 
+
 }

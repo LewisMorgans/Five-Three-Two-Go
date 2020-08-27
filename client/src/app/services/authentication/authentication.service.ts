@@ -31,13 +31,8 @@ export class AuthenticationService {
         return localStorage.getItem('user')
     };
 
-    loggedIn$(): Observable<boolean> {
-        console.log(this.currentUser);
-        console.log(this.token);
-        console.log(this.decodeToken());
-        
-        
-        
+    loggedIn$(): Observable<boolean> {  
+        this.decodeToken();
         if (!this.currentUser) {
             return of(false);
         } else {
