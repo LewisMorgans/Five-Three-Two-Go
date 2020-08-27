@@ -3,6 +3,11 @@
     src: url('./assets/fonts/BebasNeue-Bold.otf');
 }
 
+@font-face{
+    font-family: logoFont;
+    src: url('./assets/fonts/Anurati.otf');
+}
+
 body {
     background-color: #1E1E2F;
 }
@@ -11,6 +16,9 @@ body {
     border-color: red !important;
 }
 
-*:focus {
-    outline: 0ch;
+input
+{
+    outline:0px !important;
+    -webkit-appearance:none;
+    box-shadow: none !important;
 }

@@ -2,7 +2,7 @@
     font-family: titleFont;
     font-size: 400%;
     text-align: center;
-    color: #364f6b;
+    color: #98A9AE;
     height: 90px !important;
 }
 .row {
@@ -15,6 +15,7 @@
     border-radius: 30px;
     border: 3px solid #fc5185;
     padding-bottom: 50px;
+    color: #98A9AE;
 
     .image {
         width: 40%;
@@ -42,20 +43,26 @@
         }
     }
 
-    input,
-    input:focus {
+    input {
         border-radius: 30px;
-        color: #fc5185;
+        color: #98A9AE;
         width: 80% !important;
-        margin: 5% auto;
+        background-color: #27293D;
+        border-color: #2B3553;
+        margin: 3% auto;
+    }
+
+    input:focus {
+        border-color: #E14ECA;
     }
 
     label {
         font-family: titleFont;
         font-size: 150%;
-        color: #364f6b;
-        margin-left: 10%;
+        color: #98A9AE;
+        margin: 2%;
     }
+
 }
 
 @media screen and (max-width: 400px) {

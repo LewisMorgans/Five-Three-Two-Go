@@ -1,6 +1,6 @@
 .nav-link, .btn {
     font-family: titleFont;
-    color: white;
+    color: #27293D;
     font-size: 200%;
     margin: 5px;
 }
@@ -12,6 +12,14 @@
 
     li, li:hover {
         cursor: pointer;
-        color: white;
+        color: #27293D;
     }
+}
+
+.logo {
+    font-family: logoFont;
+    font-size: 35px;
+    color: #27293D;
+    text-align: center;
+    padding: 1%
 }

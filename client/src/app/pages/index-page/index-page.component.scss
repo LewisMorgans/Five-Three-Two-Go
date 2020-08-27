@@ -1,68 +1,86 @@
 .container-fluid {
-    background-color: #364F6B;
-    min-height: 93vh;
+
+    .row {
+        margin-top: 300px !important;
+    } 
+
+    background-color: #1E1E2F;
+    min-height: 50vh;
+
+    .card {
+        background-color: #27293D;
+        border-radius: 5px;
+        padding: 15%;
+        box-shadow: 1px 1px 15px 1px #E14ECA;
+    }
 
     .headingText {
         font-family: titleFont;
-        color: #43dde6;
+        color: #17B978;
         font-size: 5vw;
         margin: 12% auto;
         display: block;
         text-align: right;
     }
 
+    .logo {
+        font-family: logoFont;
+        font-size: 80px;
+        color: #E14ECA;
+        text-align: center;
+    }
+
     
-
-    .headingContainer {
-        margin-top: 10%
+    input {
+        border-radius: 10px;
+        color: #98A9AE;
+        width: 80% !important;
+        background-color: #27293D;
+        border-color: #2B3553;
+        margin: 10% auto;
     }
 
-    .pictureContainer {
-        margin-top: 7%;
-        .picture {
-            margin-top: 12%;
-            width: 80%;
-            bottom: 0;
-        }
+    input:focus {
+        border-color: #E14ECA;
     }
 
-    .btn {
+    label {
         font-family: titleFont;
-        font-size: 200%;
-        background-color: white;
-        color: #FC5185;
-        margin: 5%;
-    }
-
-    .border {
-        border: solid 3px pink;
-    }
-    
-    .callToAction {
-        margin-top: 25% !important;
+        font-size: 150%;
+        color: #98A9AE;
+        margin: 2%;
     }
 }
 
-// @media screen and (max-width: 400px) {
+.callToAction {
+    color: #C553EA;
+    text-align: center;
+    padding: 5%;
+    margin-top: 5% !important;
+    font-size: 15px;
+}
 
-//     .picture {
-//         width: 90% !important;
-//         margin-top: 1px !important;
-//     }
-//     .secondHeading {
-//         display: none;
-//     }
+.btnContainer {
+    margin: 0 auto;
+    text-align: center;
+    font-family: titleFont;
 
-//     .headingContainer {
-//         .headingText {
-//             font-family: titleFont;
-//             color: green;
-//             font-size: 5vw;
-//             margin-top: 15%;
-//             margin-bottom: 0px;
-//             display: block;
-//             text-align: right;
-//         }
-//     }
+    .go {
+        min-width: 40%;
+        max-width: 100%;
+        font-size: 200%;
+        background-color: #C553EA;
+        border-radius: 10px;
+        border: 2px solid #C553EA;
+        color: #2B3553;
+        padding: 0 5%;
+    }
+}
 
-// }
+@media screen and (max-width: 400px) {
+
+    .row {
+        margin-top: 0px !important;
+    } 
+
+}
