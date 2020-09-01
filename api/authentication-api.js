@@ -144,16 +144,7 @@ mongo.connect(process.env.MONGOURI, { useNewUrlParser: true }, (err, db) => {
     });
   });
 
-          })
 
-        })
-
-      })
-    });
-
-
-
-  })
 
 
   router.post("/deleteAccount", (req, res) => {
@@ -169,18 +160,8 @@ mongo.connect(process.env.MONGOURI, { useNewUrlParser: true }, (err, db) => {
       }).catch(err => console.log(err))
   });
 
-    collection.deleteOne({"_id": ObjectId(user_id)})
-    .then(_ => {
-      res.json({
-        status: 200,
-        message: 'account deleted'
-      })
-    }).catch(err => console.log(err))
-  })
+})
 
 
-
-
-});
 
 module.exports = router;
