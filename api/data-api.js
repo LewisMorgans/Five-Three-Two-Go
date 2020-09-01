@@ -15,7 +15,7 @@ mongo.connect(process.env.MONGOURI, { useNewUrlParser: true }, (err, db) => {
 
     router.post("/getFinances", (req, res) => {
         let user_id = req.body.userId
-        console.log(req.body)
+
         collection.find({ "_id": ObjectId(user_id) })
             .toArray()
             .then(user => {
