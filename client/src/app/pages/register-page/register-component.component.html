@@ -6,17 +6,13 @@
                     <h1 class="logo">FTTG</h1>
                 </div>
                 <form [formGroup]="registerForm" class="form-register">
-                    <label for="inputEmail">Email</label>
-                    <input formControlName="email" type="email" id="inputEmail" class="form-control" required
+                    <input placeholder="Email" formControlName="email" type="email" id="inputEmail" class="form-control" required
                         autofocus [ngClass]="{'errorClass': f.email.errors && submitted}">
-                    <label for="inputUsername">Username</label>
-                    <input formControlName="username" type="text" id="inputUsername" class="form-control"
+                    <input placeholder="Username" formControlName="username" type="text" id="inputUsername" class="form-control"
                         required [ngClass]="{'errorClass': f.username.errors && submitted}">
-                    <label for="inputPassword">Password</label>
-                    <input formControlName="password" type="password" id="inputEmail" class="form-control" required
+                    <input placeholder="Password" formControlName="password" type="password" id="inputEmail" class="form-control" required
                         autofocus [ngClass]="{'errorClass': f.password.errors && submitted}">
-                    <label for="inputPassword2">Confirm Password</label>
-                    <input formControlName="password2" type="password" id="inputPassword2" class="form-control"
+                    <input placeholder="Confirm Password" formControlName="password2" type="password" id="inputPassword2" class="form-control"
                         required [ngClass]="{'errorClass': f.password2.errors && submitted}">
                     <div class="btnContainer">
                         <button class="btn btn-large go" type="submit" (click)="onSubmit()">GO</button>
