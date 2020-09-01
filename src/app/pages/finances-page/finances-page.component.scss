@@ -1,0 +1,54 @@
+.errorClass {
+    h1 {
+        color: red !important;
+    }
+}
+
+
+h1 {
+    
+        font-family: titleFont;
+        font-size: 50px;
+        color: #17b978;
+        padding-top: 35%
+    
+}
+h2 {
+    font-family: titleFont;
+    font-size: 50px;
+    color: #FC5185;
+}
+h3 {
+    font-family: titleFont;
+    font-size: 25px;
+    color: #CD51E0;
+}
+
+.card {
+    background-color: #27293D;
+    border-radius: 5px;
+    padding: 0 5%;
+}
+
+.chart {
+    width: 100%; 
+    min-height: 450px;
+    border-radius: 15px;
+  }
+
+  .btnContainer {
+    margin: 0 auto;
+    text-align: center;
+    font-family: titleFont;
+
+    .go {
+        min-width: 40%;
+        max-width: 100%;
+        font-size: 200%;
+        background-color: #C553EA;
+        border-radius: 10px;
+        border: 2px solid #C553EA;
+        color: #27293D;
+        padding: 0 5%;
+    }
+}

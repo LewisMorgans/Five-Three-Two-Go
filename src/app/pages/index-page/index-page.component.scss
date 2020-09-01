@@ -1,0 +1,86 @@
+.container-fluid {
+
+    .row {
+        margin-top: 300px !important;
+    } 
+
+    background-color: #1E1E2F;
+    min-height: 50vh;
+
+    .card {
+        background-color: #27293D;
+        border-radius: 5px;
+        padding: 15%;
+        box-shadow: 1px 1px 15px 1px #E14ECA;
+    }
+
+    .headingText {
+        font-family: titleFont;
+        color: #17B978;
+        font-size: 5vw;
+        margin: 12% auto;
+        display: block;
+        text-align: right;
+    }
+
+    .logo {
+        font-family: logoFont;
+        font-size: 80px;
+        color: #E14ECA;
+        text-align: center;
+    }
+
+    
+    input {
+        border-radius: 10px;
+        color: #98A9AE;
+        width: 80% !important;
+        background-color: #27293D;
+        border-color: #2B3553;
+        margin: 10% auto;
+    }
+
+    input:focus {
+        border-color: #E14ECA;
+    }
+
+    label {
+        font-family: titleFont;
+        font-size: 150%;
+        color: #98A9AE;
+        margin: 2%;
+    }
+}
+
+.callToAction {
+    color: #C553EA;
+    text-align: center;
+    padding: 5%;
+    margin-top: 5% !important;
+    font-size: 15px;
+}
+
+.btnContainer {
+    margin: 0 auto;
+    text-align: center;
+    font-family: titleFont;
+
+    .go {
+        min-width: 40%;
+        max-width: 100%;
+        font-size: 200%;
+        background-color: #C553EA;
+        border-radius: 10px;
+        border: 2px solid #C553EA;
+        color: #2B3553;
+        padding: 0 5%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+
+    .row {
+        margin-top: 0px !important;
+    } 
+
+}

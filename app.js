@@ -3,6 +3,7 @@ const path = require('path');
 const app = express();
 const mongo = require('mongodb');
 const passport = require('passport');
+
 const port =  process.env.PORT || 9090;
 require('dotenv').config();
 const bodyParser = require('body-parser');
@@ -16,11 +17,20 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/api/authentication', authentication);
 app.use('/api/data/', data); 
+
+app.use(express.static(path.join(__dirname, './dist')))
+app.get('*/', (req, res) => { 
+    const indexFile = path.join(__dirname, './dist/index.html');
+    res.sendFile(indexFile);
+})
+console.log(process.env.MONGOURI)
+
 app.use(express.static(path.join(__dirname, '/client')))
 app.get('*/', (req, res) => { 
     const indexFile = path.join(__dirname, '/client/index.html');
     res.sendFile(indexFile);
 })
+
 
 app.listen(port, () => {
     console.log(`Server running on ${port}`)

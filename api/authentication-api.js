@@ -58,6 +58,7 @@ mongo.connect(process.env.MONGOURI, { useNewUrlParser: true }, (err, db) => {
         bcrypt.compare(req.body.password, user[0].password, (err, isMatch) => {
           if (err) throw new Error(err)
           if (isMatch) {
+
             const token = jwt.sign({ userId: user[0]._id }, process.env.secret, { expiresIn: '24h' });
             res.json({ status: 200, token: token, user: { email: user[0].email } })
           } else {
@@ -134,6 +135,15 @@ mongo.connect(process.env.MONGOURI, { useNewUrlParser: true }, (err, db) => {
           res.json({
             status: 200,
             message: "update made"
+
+          });
+
+        });
+
+      });
+    });
+  });
+
           })
 
         })
@@ -145,9 +155,20 @@ mongo.connect(process.env.MONGOURI, { useNewUrlParser: true }, (err, db) => {
 
   })
 
+
   router.post("/deleteAccount", (req, res) => {
     console.log(req.body)
     let user_id = req.body.userId;
+
+    collection.deleteOne({ "_id": ObjectId(user_id) })
+      .then(_ => {
+        res.json({
+          status: 200,
+          message: 'account deleted'
+        })
+      }).catch(err => console.log(err))
+  });
+
     collection.deleteOne({"_id": ObjectId(user_id)})
     .then(_ => {
       res.json({
@@ -156,6 +177,7 @@ mongo.connect(process.env.MONGOURI, { useNewUrlParser: true }, (err, db) => {
       })
     }).catch(err => console.log(err))
   })
+
 
 
 

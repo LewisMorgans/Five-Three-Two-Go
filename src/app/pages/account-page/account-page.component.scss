@@ -1,0 +1,91 @@
+.titleFont {
+    font-family: titleFont;
+    font-size: 32px;
+    text-align: center;
+    color: #E14ECA;
+}
+
+.col-md-4 {
+    margin: 0px;
+    padding: 0px;
+}
+
+.info {
+    font-size: 35px;
+    text-align: center;
+    color: white;
+    line-height: 1em;
+    padding-top: 12vh;
+}
+
+.container {
+
+    .form {
+        background-color: #27293D;
+
+        input {
+            border-radius: 10px;
+            color: #98A9AE;
+            width: 80% !important;
+            background-color: #27293D;
+            border-color: #2B3553;
+            margin: 3% auto;
+        }
+
+        input:focus {
+            border-color: #E14ECA;
+        }
+
+        label {
+            font-family: titleFont;
+            font-size: 150%;
+            color: #98A9AE;
+            margin: 2%;
+        }
+
+        .form-register {
+            margin-top: 2%;
+            margin-bottom: 22%;
+        }
+
+        .btnContainer {
+            margin: 0 auto;
+            text-align: center;
+            font-family: titleFont;
+
+            .go {
+                width: 55%;
+                font-size: 150%;
+                background-color: #C553EA;
+                border-radius: 30px;
+                color: #2B3553;
+                padding: 0 5%;
+                display: block;
+                margin: 5% auto;
+                border: 1px solid #364f6b;
+            }
+
+            .delete {
+                margin: 5% auto;
+                display: block;
+                width: 55%;
+                font-size: 150%;
+                background-color: #C553EA;
+                border-radius: 30px;
+                color: #2B3553;
+                padding: 0 5%;
+                border: 1px solid white;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .promo {
+        display: none;
+    }
+
+    .row {
+        margin-top: 100px !important;
+    }
+}

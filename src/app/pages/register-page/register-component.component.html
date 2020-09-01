@@ -1,0 +1,24 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2 mx-auto">
+            <div class="card">
+                <div class="card-img-top mb-5">
+                    <h1 class="logo">FTTG</h1>
+                </div>
+                <form [formGroup]="registerForm" class="form-register">
+                    <input placeholder="Email" formControlName="email" type="email" id="inputEmail" class="form-control" required
+                        autofocus [ngClass]="{'errorClass': f.email.errors && submitted}">
+                    <input placeholder="Username" formControlName="username" type="text" id="inputUsername" class="form-control"
+                        required [ngClass]="{'errorClass': f.username.errors && submitted}">
+                    <input placeholder="Password" formControlName="password" type="password" id="inputEmail" class="form-control" required
+                        autofocus [ngClass]="{'errorClass': f.password.errors && submitted}">
+                    <input placeholder="Confirm Password" formControlName="password2" type="password" id="inputPassword2" class="form-control"
+                        required [ngClass]="{'errorClass': f.password2.errors && submitted}">
+                    <div class="btnContainer">
+                        <button class="btn btn-large go" type="submit" (click)="onSubmit()">GO</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

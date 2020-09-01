@@ -1,0 +1,24 @@
+@font-face{
+    font-family: titleFont;
+    src: url('./assets/fonts/BebasNeue-Bold.otf');
+}
+
+@font-face{
+    font-family: logoFont;
+    src: url('./assets/fonts/Anurati.otf');
+}
+
+body {
+    background-color: #1E1E2F;
+}
+
+.errorClass {
+    border-color: red !important;
+}
+
+input
+{
+    outline:0px !important;
+    -webkit-appearance:none;
+    box-shadow: none !important;
+}

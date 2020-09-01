@@ -1,0 +1,84 @@
+<div class="container-fluid">
+    <div class="row mt-5">
+        <div class="col-md-3 mx-auto">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <div class="card-innerBody d-flex align-items-center">
+                        <div class="mx-auto" [ngClass]="{'errorClass': differential[0] > 0}">
+                            <h1>{{differential[0] | currency :'GBP'}}</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex ">
+                    <small class="mr-auto">
+                        <h3>fifty</h3>
+                    </small>
+                    <small class="ml-auto">
+                        <h3>budget: {{financeData.budget[0] | currency : 'GBP'}}</h3>
+                    </small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mx-auto">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <div class="card-innerBody d-flex align-items-center">
+                        <div class="mx-auto" [ngClass]="{'errorClass': differential[1] > 0}" >
+                            <h1> {{differential[1] | currency :'GBP'}}</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex ">
+                    <small class="mr-auto">
+                        <h3>thirty</h3>
+                    </small>
+                    <small class="ml-auto">
+                        <h3>budget: {{financeData.budget[1] | currency : 'GBP'}}</h3>
+                    </small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mx-auto">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <div class="card-innerBody d-flex align-items-center">
+                        <div class="mx-auto" [ngClass]="{'errorClass': differential[2] > 0}">
+                            <h1>{{differential[2] | currency :'GBP'}}</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex ">
+                    <small class="mr-auto">
+                        <h3>twenty</h3>
+                    </small>
+                    <small class="ml-auto">
+                        <h3>budget: {{financeData.budget[2] | currency : 'GBP'}}</h3>
+                    </small>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 mx-auto mt-5">
+            <div class="card" *ngIf="barChartData; else elseBlock">
+                <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+                    [legend]="barChartLegend" [chartType]="barChartType">
+                </canvas>
+                <div class="card-footer">
+                    <div class="btnContainer">
+                        <button type="button" class="btn btn-primary go" data-toggle="modal" data-target="#exampleModalCenter">
+                            Edit Finances
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <ng-template #elseBlock>Loading...</ng-template>
+        </div>
+        <div class="col-md-4">
+            <app-account-page></app-account-page>
+        </div>
+    </div>
+</div>
+
+<app-modal-page (differential)="setDifferential($event)" (finances)="setValues($event)"></app-modal-page>
