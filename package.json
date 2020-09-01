@@ -1,7 +1,9 @@
 {
-
   "name": "fttg",
   "version": "0.0.0",
+  "engines": {
+    "node": "12.x"
+  },
   "scripts": {
     "ng": "ng",
     "build": "ng build",
@@ -13,7 +15,6 @@
   },
   "private": true,
   "main": "app.js",
-
   "dependencies": {
     "@angular/animations": "~9.1.7",
     "@angular/cdk": "^9.2.4",
@@ -50,7 +51,6 @@
     "path": "^0.12.7",
     "router": "^1.3.5"
   },
-
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.901.11",
     "@angular/cli": "~9.1.6",
@@ -74,5 +74,4 @@
   },
   "author": "Lewis Morgans",
   "license": "MIT"
-
 }
