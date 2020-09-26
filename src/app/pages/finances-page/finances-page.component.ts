@@ -26,8 +26,8 @@ export class FinancesPageComponent {
 
   public setValues(e) {
     this.barChartData = [
-      { data: [e.budget[0], e.budget[1], e.budget[2], 2], label: 'Budget', backgroundColor: ['#364F6B', '#364F6B', '#364F6B'] },
-      { data: [e.actualSpend[0], e.actualSpend[1], e.actualSpend[2]], label: 'Actual Spend', backgroundColor: ['#d72323', '#d72323', '#d72323'] }
+      { data: [e.budget[0], e.budget[1], e.budget[2], 2], label: 'Budget', backgroundColor: ['#364F6B', '#364F6B', '#364F6B'], hoverBackgroundColor: ['#364F6B', '#364F6B', '#364F6B'] },
+      { data: [e.actualSpend[0], e.actualSpend[1], e.actualSpend[2]], label: 'Actual Spend', backgroundColor: ['#d72323', '#d72323', '#d72323'], hoverBackgroundColor: ['#d72323', '#d72323', '#d72323'] }
     ];
 
     this.financeData.actualSpend = e.actualSpend.map(x => x);
