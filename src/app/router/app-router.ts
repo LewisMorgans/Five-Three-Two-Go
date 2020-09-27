@@ -3,9 +3,9 @@ import { NgModule } from '@angular/core'
 import { AuthenticationGaurdGuard } from '../gaurds/authentication-gaurd.guard'
 
 const applicationRoutes: Routes = [
-    { path: '', loadChildren: () => import('../pages/index-page/index.module').then(m => m.IndexModule) },
+    { path: '', loadChildren: () => import('../pages/signin-page/signin.module').then(m => m.SigninModule) },
     { path: 'register', loadChildren: () => import('../pages/register-page/register.module').then(m => m.RegisterModule) },
-    { path: 'finances', loadChildren: () => import('../pages/finances-page/finances.module').then(m => m.FinancesModule) }
+    { path: 'finances', loadChildren: () => import('../pages/dashboard-page/dashboard.module').then(m => m.DashboardModule) }
   ]
   
   @NgModule({

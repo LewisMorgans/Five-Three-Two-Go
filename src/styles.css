@@ -1,24 +1,29 @@
-@font-face{
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+@font-face {
     font-family: titleFont;
-    src: url('./assets/fonts/BebasNeue-Bold.otf');
+    src: url("./assets/fonts/BebasNeue-Bold.otf");
 }
 
-@font-face{
+@font-face {
     font-family: logoFont;
-    src: url('./assets/fonts/Anurati.otf');
+    src: url("./assets/fonts/Anurati.otf");
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    background-color: #1E1E2F;
+    background-color: #1e1e2f;
 }
 
 .errorClass {
     border-color: red !important;
 }
 
-input
-{
-    outline:0px !important;
-    -webkit-appearance:none;
+input {
+    outline: 0px !important;
+    -webkit-appearance: none;
     box-shadow: none !important;
 }

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
+import { ErrorHandlerService } from 'src/app/services/error-handler/error-handler.service';
+import { SnackBarService } from 'src/app/services/notifcations/notifcations.service';
 
 @Component({
   selector: 'app-register-component',
@@ -16,7 +18,9 @@ export class RegisterComponent implements OnInit {
   constructor(
     private readonly _fb: FormBuilder,
     private readonly _router: Router,
-    private readonly _authenticationService: AuthenticationService) { }
+    private readonly _authenticationService: AuthenticationService,
+    private readonly _errorHandlerService: ErrorHandlerService,
+    private readonly _snackbarService: SnackBarService) { }
 
   ngOnInit(): void {
     this.intialiseFormState();
@@ -48,14 +52,16 @@ export class RegisterComponent implements OnInit {
     if (this.validationCheck()) {
       this._authenticationService.registerAccount$(payload)
       .subscribe(resp => {
-        if(resp.status === 200) {
-          this._router.navigate(['sign-in'])
-        } else {
-          console.log(resp.message)
+        this._errorHandlerService.errorHandler(resp.code, resp.message)
+        if(resp.code == 200) {
+          this._authenticationService.storeUserData(resp.token, resp.user);
+          this._authenticationService.loggedIn$().subscribe();
+          this._router.navigate(['']);
+          this._snackbarService.openSnackBar(resp.message, 'X');
         }
-      })
+      });
       
-    }
+    };
   }
 
   private validationCheck(): boolean {

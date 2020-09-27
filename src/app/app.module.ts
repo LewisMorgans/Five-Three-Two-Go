@@ -7,6 +7,7 @@ import { AppRoutingModule } from './router/app-router';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JwtModule } from "@auth0/angular-jwt";
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 export function tokenGetter() {
   return localStorage.getItem("token");
@@ -31,7 +32,9 @@ export function tokenGetter() {
         disallowedRoutes: ["http://example.com/examplebadroute/"],
       },
     }),
+    MatSnackBarModule
   ],
+  exports: [MatSnackBarModule],
   providers: [],
   bootstrap: [AppComponent]
 })

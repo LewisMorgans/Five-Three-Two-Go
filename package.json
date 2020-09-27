@@ -28,6 +28,7 @@
     "@angular/platform-browser-dynamic": "~9.1.7",
     "@angular/router": "~9.1.7",
     "@auth0/angular-jwt": "^5.0.1",
+    "@material/snackbar": "^7.0.0",
     "@nebular/eva-icons": "5.1.0",
     "@nebular/theme": "^5.1.0",
     "angular-bootstrap-md": "^9.3.1",

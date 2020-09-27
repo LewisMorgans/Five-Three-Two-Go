@@ -30,7 +30,7 @@ mongo.connect(process.env.MONGOURI, { useNewUrlParser: true }, (err, db) => {
     collection.findOne({ email: req.body.email })
       .then(user => {
         if (user) {
-          res.json({ code: 250, message: 'User email already exists' });
+          res.json({ code: 204, message: 'User email already exists' });
         } else {
           bcrypt.genSalt(10, (err, salt) => {
             bcrypt.hash(newUser.password, salt, (err, hash) => {
@@ -39,10 +39,8 @@ mongo.connect(process.env.MONGOURI, { useNewUrlParser: true }, (err, db) => {
               collection.insertOne(newUser)
             })
           });
-          res.json({
-            status: 200,
-            message: 'success'
-          });
+          const token = jwt.sign({ userId: user[0]._id }, process.env.secret, { expiresIn: '24h' });
+          res.json({ code: 200, token: token, user: { email: user[0].email } })
         }
       })
   });
@@ -53,18 +51,21 @@ mongo.connect(process.env.MONGOURI, { useNewUrlParser: true }, (err, db) => {
       .toArray()
       .then((user => {
         if (!user.length) {
-          res.sendStatus(404);
+          res.json({
+            code: 202,
+            message: 'No matching email address found'
+          });
         }
         bcrypt.compare(req.body.password, user[0].password, (err, isMatch) => {
           if (err) throw new Error(err)
           if (isMatch) {
 
             const token = jwt.sign({ userId: user[0]._id }, process.env.secret, { expiresIn: '24h' });
-            res.json({ status: 200, token: token, user: { email: user[0].email } })
+            res.json({ code: 200, token: token, user: { email: user[0].email } })
           } else {
             res.json({
-              code: 404,
-              message: 'user not found'
+              code: 203,
+              message: 'Incorrect username or password'
             })
           }
         })
